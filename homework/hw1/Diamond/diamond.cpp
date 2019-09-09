@@ -25,7 +25,7 @@ int main()
 	{
 		for (int i = 0; i < 2 * n - 1; i++)
 		{
-			for (int x = 0; x < i; x++)
+			for (int x = 0; x < 2 * n - i; x++)
 				cout << " ";
 			for (int p = 0; p < i; p++)
 				cout << "#";
