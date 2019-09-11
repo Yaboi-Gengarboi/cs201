@@ -2,7 +2,7 @@
 diamond.cpp
 Justyn P. Durnford
 Created on 9/6/2019
-Finished on 
+Finished on 9/11/2019
 This program takes a positive integer input, n, and prints a diamond
 with a maximum width of 2 * n - 1.
 */
@@ -32,7 +32,7 @@ int main()
 				cout << "#";
 			cout << endl;
 		}
-		for (int k = i - 1; k > 0; k--)
+		for (int k = i - 2; k >= 0; k--)
 		{
 			for (int o = 0; o < n - k - 1; o++)
 				cout << " ";
