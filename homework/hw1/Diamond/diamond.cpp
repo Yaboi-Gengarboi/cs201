@@ -18,7 +18,6 @@ int main()
 	int i = 0;
 	cout << "Enter a positive integer: ";
 	cin >> n;
-	int maxWidth = 2 * n - 1;
 	if (n <= 0)
 	{
 		cout << n << " is not a positive integer. No diamond will be printed.";
@@ -27,9 +26,17 @@ int main()
 	{
 		for (i = 0; i < n; i++)
 		{
-			for (int o = 0; o < n - i; o++)
+			for (int o = 0; o < n - i - 1; o++)
 				cout << " ";
 			for (int p = 0; p < 1 + 2 * i; p++)
+				cout << "#";
+			cout << endl;
+		}
+		for (int k = i - 1; k > 0; k--)
+		{
+			for (int o = 0; o < n - k - 1; o++)
+				cout << " ";
+			for (int p = 0; p < 1 + 2 * k; p++)
 				cout << "#";
 			cout << endl;
 		}
