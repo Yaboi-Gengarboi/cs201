@@ -15,19 +15,21 @@ using std::endl;
 int main()
 {
 	int n = 0;
+	int i = 0;
 	cout << "Enter a positive integer: ";
 	cin >> n;
+	int maxWidth = 2 * n - 1;
 	if (n <= 0)
 	{
 		cout << n << " is not a positive integer. No diamond will be printed.";
 	}
 	else if (n > 0)
 	{
-		for (int i = 0; i < n; i++)
+		for (i = 0; i < n; i++)
 		{
-			for (int x = 0; x < n - i; x++)
+			for (int o = 0; o < n - i; o++)
 				cout << " ";
-			for (int p = 0; p < i; p++)
+			for (int p = 0; p < 1 + 2 * i; p++)
 				cout << "#";
 			cout << endl;
 		}
