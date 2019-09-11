@@ -23,9 +23,9 @@ int main()
 	}
 	else if (n > 0)
 	{
-		for (int i = 0; i < 2 * n - 1; i++)
+		for (int i = 0; i < n; i++)
 		{
-			for (int x = 0; x < 2 * n - i; x++)
+			for (int x = 0; x < n - i; x++)
 				cout << " ";
 			for (int p = 0; p < i; p++)
 				cout << "#";
