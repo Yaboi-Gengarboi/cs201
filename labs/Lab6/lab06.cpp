@@ -21,7 +21,11 @@ void printString1(string s)
 
 void printString2(string s)
 {
-
+	cout << "String: " << s << endl;
+	cout << "New String: ";
+	for (int i = 0; i < s.size(); i++)
+		cout << "#";
+	cout << endl;
 }
 
 void part1()
