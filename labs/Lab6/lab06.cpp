@@ -33,7 +33,7 @@ void part1()
 	string a = "apple";
 	string b = "bee";
 	string c = "cactus";
-	string d = "dog";
+	string d = "done";
 	printString1(a);
 	printString1(b);
 	printString1(c);
@@ -42,7 +42,14 @@ void part1()
 
 void part2()
 {
-
+	string a = "apple";
+	string b = "bee";
+	string c = "cactus";
+	string d = "done";
+	printString2(a);
+	printString2(b);
+	printString2(c);
+	printString2(d);
 }
 
 int main()
