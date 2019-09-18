@@ -2,7 +2,7 @@
 lab07.cpp
 Justyn P. Durnford
 Created on 9/18/2019
-Finished on
+Finished on 9/18/2019
 part1 uses the getInt(); and putInt(); methods added from intio to take 3 integers
 from the user and print them in a neat column.
 part2 uses the getInt(); and putInt(); methods added from intio to take integers
@@ -77,7 +77,54 @@ void part2()
 
 void part3()
 {
+	vector<int> numbers;
+	cout << "This code will print the smallest integer you enter." << endl;
+	int f = 1;
+	while (f != 0)
+	{
+		cout << "Enter a non-zero integer to add it to the list." << endl;
+		cout << "Enter 0 to stop and print the smallest integer. ";
+		f = getInt();
+		switch (f)
+		{
+		case 0:
+			switch (numbers.size())
+			{
+			case 0:
+				cout << "No integers were intered." << endl;
+				break;
+			case 1:
+				cout << "Smallest integer entered: " << numbers[0];
+				break;
+			default:
+				bool isOrganized = false;
+				while (!isOrganized)
+				{
+					isOrganized = true;
+					int el1 = 0;
+					int el2 = 0;
+					for (int i = 0; i < numbers.size() - 1; i++)
+					{
+						el1 = numbers[i];
+						el2 = numbers[i + 1];
+						if (el1 < el2)
+						{
+							numbers[i + 1] = el1;
+							numbers[i] = el2;
+							isOrganized = false;
+						}
 
+					}
+				}
+				cout << "Smallest integer entered: " << numbers.back() << endl;
+				break;
+			}
+		default:
+			numbers.push_back(f);
+			break;
+		}
+	}
+	cout << endl;
 }
 
 int main()
@@ -98,6 +145,9 @@ int main()
 			break;
 		case 2:
 			part2();
+			break;
+		case 3:
+			part3();
 			break;
 		case 0:
 			break;
