@@ -14,7 +14,7 @@ using std::endl;
 int main()
 {
 	int nPennies = 0;
-	int nNickles = 0;
+	int nNickels = 0;
 	int nDimes = 0;
 	int nQuarters = 0;
 	int nHalfDollars = 0;
@@ -22,8 +22,8 @@ int main()
 
 	cout << "How many pennies do you have? ";
 	cin >> nPennies;
-	cout << "How many nickles do you have? ";
-	cin >> nNickles;
+	cout << "How many nickels do you have? ";
+	cin >> nNickels;
 	cout << "How many dimes do you have? ";
 	cin >> nDimes;
 	cout << "How many quarters do you have? ";
@@ -33,7 +33,8 @@ int main()
 	cout << "how many dollars do you have? ";
 	cin >> nDollars;
 
-
+	cout << "You have " << nPennies << " pennies." << endl;
+	cout << "You have " << nNickels << " nickeles." << endl;
 
 	return 0;
 }
