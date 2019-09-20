@@ -21,5 +21,16 @@
     <ClCompile Include="lab08.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lab8main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="intio.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lab8.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
