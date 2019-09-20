@@ -11,17 +11,10 @@ Finished on
 
 int doInput()
 {
-	int num = getInt();
-	return num;
+	return getInt();
 }
 
 int compute(int n)
 {
-	n *= 3;
-	n -= 2;
-	n *= 6;
-	n += 5;
-	n /= 4;
-	n *= n;
-	return n;
+	return n*n;
 }
