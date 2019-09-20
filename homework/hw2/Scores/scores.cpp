@@ -17,5 +17,10 @@ using std::string;
 
 int main()
 {
+	vector<string> names;
+	vector<int> scores;
+
+	
+
 	return 0;
 }
