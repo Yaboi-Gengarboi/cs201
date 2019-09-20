@@ -8,9 +8,6 @@ Finished on
 
 #include "intio.hpp"
 #include "lab8.hpp"
-#include <iostream>
-using std::cout;
-using std::endl;
 
 int doInput()
 {
