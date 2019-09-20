@@ -20,10 +20,11 @@ int doInput()
 
 int compute(int n)
 {
-	n *= 2;
-	n -= 3;
+	n *= 3;
+	n -= 2;
 	n *= 6;
 	n += 5;
-	n /= 3;
+	n /= 4;
+	n *= n;
 	return n;
 }
