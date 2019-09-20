@@ -33,8 +33,21 @@ int main()
 	cout << "how many dollars do you have? ";
 	cin >> nDollars;
 
+	int money = 0;
+	money += nPennies;
+	money += nNickels * 5;
+	money += nDimes * 10;
+	money += nQuarters * 25;
+	money += nHalfDollars * 50;
+	money += nDollars * 100;
+
 	cout << "You have " << nPennies << " pennies." << endl;
 	cout << "You have " << nNickels << " nickeles." << endl;
+	cout << "You have " << nDimes << " dimes." << endl;
+	cout << "You have " << nQuarters << " quarters." << endl;
+	cout << "You have " << nHalfDollars << " half dollars." << endl;
+	cout << "You have " << nDollars << " dollars." << endl;
+	cout << "The value of all your money is " << money << " cents.";
 
 	return 0;
 }
