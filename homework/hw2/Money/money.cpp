@@ -7,9 +7,26 @@ Finished on
 */
 
 #include <iostream>
+#include <string>
 using std::cout;
 using std::cin;
 using std::endl;
+using std::string;
+
+void printMoney(int amount, string type)
+{
+	switch (amount)
+	{
+	case 0:
+		break;
+	case 1:
+		cout << "You have 1 " << type << endl;
+		break;
+	default:
+		cout << "You have " << amount << " " << type << "s" << endl;
+		break;
+	}
+}
 
 int main()
 {
@@ -41,13 +58,20 @@ int main()
 	money += nHalfDollars * 50;
 	money += nDollars * 100;
 
-	cout << "You have " << nPennies << " pennies." << endl;
-	cout << "You have " << nNickels << " nickeles." << endl;
-	cout << "You have " << nDimes << " dimes." << endl;
-	cout << "You have " << nQuarters << " quarters." << endl;
-	cout << "You have " << nHalfDollars << " half dollars." << endl;
-	cout << "You have " << nDollars << " dollars." << endl;
-	cout << "The value of all your money is " << money << " cents.";
+	switch (nPennies)
+	{
+	case 1:
+		printMoney(nPennies, "penny");
+		break;
+	default:
+		printMoney(nPennies, "pennie");
+		break;
+	}
+	printMoney(nNickels, "nickel");
+	printMoney(nDimes, "dime");
+	printMoney(nQuarters, "quarter");
+	printMoney(nHalfDollars, "half dollar");
+	printMoney(nDollars, "dollar");
 
 	return 0;
 }
