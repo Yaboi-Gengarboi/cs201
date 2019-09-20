@@ -2,8 +2,7 @@
 lab08.cpp
 Justyn P. Durnford
 Created on 9/20/2019
-Finished on
-
+Finished on 9/20/2019
 */
 
 #include "intio.hpp"
