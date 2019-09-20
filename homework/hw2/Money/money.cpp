@@ -2,8 +2,10 @@
 money.cpp
 Justyn P. Durnford
 Created on 9/18/2019
-Finished on
-
+Finished on 9/20/2019
+This program asks the user for an amount for each unit of currency
+and then prints the units back before adding them up and printing
+the total value.
 */
 
 #include <iostream>
@@ -13,6 +15,11 @@ using std::cin;
 using std::endl;
 using std::string;
 
+/*
+This function basically lets me determine whether the currency
+is plural or single. I didn't want to write a swicth for every
+type :P
+*/
 void printMoney(int amount, string type)
 {
 	switch (amount)
@@ -50,14 +57,18 @@ int main()
 	cout << "how many dollars do you have? ";
 	cin >> nDollars;
 
-	int money = 0;
-	money += nPennies;
-	money += nNickels * 5;
-	money += nDimes * 10;
-	money += nQuarters * 25;
-	money += nHalfDollars * 50;
-	money += nDollars * 100;
+	double money = 0;
+	money += nPennies * 0.01;
+	money += nNickels * 0.05;
+	money += nDimes * 0.1;
+	money += nQuarters * 0.25;
+	money += nHalfDollars * 0.5;
+	money += nDollars;
 
+	/*
+	Pennies are the only currency I need do to something extra
+	to for printMoney to work.
+	*/
 	switch (nPennies)
 	{
 	case 1:
@@ -72,6 +83,8 @@ int main()
 	printMoney(nQuarters, "quarter");
 	printMoney(nHalfDollars, "half dollar");
 	printMoney(nDollars, "dollar");
+
+	cout << "The total value of your cash is $" << money;
 
 	return 0;
 }
