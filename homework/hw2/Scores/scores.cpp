@@ -40,9 +40,19 @@ int main()
 			space = line.find(' ');
 			name = line.substr(0, space);
 			score = stoi(line.substr(space));
-			names.push_back(name);
-			scores.push_back(score);
-			cont = false;
+			for (int i = 0; i < names.size(); i++)
+			{
+				if (names[i].compare(name) == 0)
+				{
+					cout << "ERROR: " << name << " has already been entered." << endl;
+					cont = false;
+				}
+			}
+			if (cont)
+			{
+				names.push_back(name);
+				scores.push_back(score);
+			}
 		}
 	}
 	
