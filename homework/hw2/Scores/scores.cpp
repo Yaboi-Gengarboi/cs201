@@ -61,5 +61,14 @@ void addNamesAndScores()
 int main()
 {
 	addNamesAndScores();
+	bool cont = true;
+	while (cont)
+	{
+		cout << "Enter 1 to continue to add names and scores." << endl;
+		cout << "Enter 2 to print the names and scores." << endl;
+		cout << "Enter 3 to search for a score assigned to a specific name." << endl;
+		cout << "Enter 4 to search for a name assigned to a specific score." << endl;
+
+	}
 	return 0;
 }
