@@ -77,7 +77,10 @@ int main()
 
 		}
 		else if (f.compare("1") == 0)
+		{
+			cin.ignore();
 			addNamesAndScores();
+		}
 		else if (f.compare("2") == 0)
 		{
 			for (int i = 0; i < names.size(); i++)
@@ -85,7 +88,8 @@ int main()
 		}
 		else if (f.compare("3") == 0)
 		{
-			cout << "Enter a name to search for: ";
+			cin.ignore();
+			cout << "Enter a name to search for." << endl;
 			cin >> find;
 			for (int i = 0; i < names.size(); i++)
 			{
@@ -100,7 +104,7 @@ int main()
 		}
 		else if (f.compare("4") == 0)
 		{
-
+			cin.ignore();
 		}
 		else
 			cout << "Invalid input. Try again." << endl;
