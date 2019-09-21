@@ -55,20 +55,41 @@ void addNamesAndScores()
 		}
 	}
 	for (int i = 0; i < names.size(); i++)
-		cout << names[i] + " " << scores[i] << endl;
+		cout << names[i] << " " << scores[i] << endl;
 }
 
 int main()
 {
 	addNamesAndScores();
-	bool cont = true;
-	while (cont)
+	int f = -1;
+	while (f != 0)
 	{
 		cout << "Enter 1 to continue to add names and scores." << endl;
 		cout << "Enter 2 to print the names and scores." << endl;
 		cout << "Enter 3 to search for a score assigned to a specific name." << endl;
 		cout << "Enter 4 to search for a name assigned to a specific score." << endl;
+		cout << "Enter 0 to quit." << endl;
+		switch (f)
+		{
+		case 0:
+			break;
+		case 1:
+			addNamesAndScores();
+			break;
+		case 2:
+			for (int i = 0; i < names.size(); i++)
+				cout << names[i] << " " << scores[i] << endl;
+			break;
+		case 3:
+			
+			break;
+		case 4:
 
+			break;
+		default:
+			cout << "Invalid input. Try again." << endl;
+			break;
+		}
 	}
 	return 0;
 }
