@@ -61,35 +61,49 @@ void addNamesAndScores()
 int main()
 {
 	addNamesAndScores();
-	int f = -1;
-	while (f != 0)
+	string f = "";
+	string find = "";
+	bool found = false;
+	while (f.compare("0") != 0)
 	{
 		cout << "Enter 1 to continue to add names and scores." << endl;
 		cout << "Enter 2 to print the names and scores." << endl;
 		cout << "Enter 3 to search for a score assigned to a specific name." << endl;
 		cout << "Enter 4 to search for a name assigned to a specific score." << endl;
 		cout << "Enter 0 to quit." << endl;
-		switch (f)
+		cin >> f;
+		if (f.compare("0") == 0)
 		{
-		case 0:
-			break;
-		case 1:
+
+		}
+		else if (f.compare("1") == 0)
 			addNamesAndScores();
-			break;
-		case 2:
+		else if (f.compare("2") == 0)
+		{
 			for (int i = 0; i < names.size(); i++)
 				cout << names[i] << " " << scores[i] << endl;
-			break;
-		case 3:
-			
-			break;
-		case 4:
-
-			break;
-		default:
-			cout << "Invalid input. Try again." << endl;
-			break;
 		}
+		else if (f.compare("3") == 0)
+		{
+			cout << "Enter a name to search for: ";
+			cin >> find;
+			for (int i = 0; i < names.size(); i++)
+			{
+				if (names[i].compare(find) == 0 && !found)
+				{
+					found = true;
+					cout << names[i] << " has a score of " << scores[i] << endl;
+				}
+			}
+			if (found == false)
+				cout << "The name " << find << " was not found." << endl;
+		}
+		else if (f.compare("4") == 0)
+		{
+
+		}
+		else
+			cout << "Invalid input. Try again." << endl;
 	}
 	return 0;
 }
