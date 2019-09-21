@@ -11,15 +11,41 @@ Finished on
 #include <string>
 using std::cout;
 using std::cin;
+using std::getline;
 using std::endl;
 using std::vector;
 using std::string;
+using std::stoi;
 
 int main()
 {
 	vector<string> names;
 	vector<int> scores;
 
+	string line = "";
+	int space = 0;
+	string name = "";
+	int score = 0;
+	
+	bool cont = true;
+	while (cont)
+	{
+		cout << "Enter a name and score in the format: NAME SCORE" << endl;
+		cout << "Enter NoName 0 to stop. " << endl;
+		getline(cin, line);
+		if (line.compare("NoName 0") == 0)
+			cont = false;
+		else
+		{
+			space = line.find(' ');
+			name = line.substr(0, space);
+			score = stoi(line.substr(space));
+			names.push_back(name);
+			scores.push_back(score);
+			cont = false;
+		}
+	}
+	
 	
 
 	return 0;
