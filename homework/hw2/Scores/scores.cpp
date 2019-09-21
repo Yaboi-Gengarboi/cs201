@@ -17,16 +17,15 @@ using std::vector;
 using std::string;
 using std::stoi;
 
-int main()
-{
-	vector<string> names;
-	vector<int> scores;
+vector<string> names;
+vector<int> scores;
+string line = "";
+int space = 0;
+string name = "";
+int score = 0;
 
-	string line = "";
-	int space = 0;
-	string name = "";
-	int score = 0;
-	
+void addNamesAndScores()
+{
 	bool cont = true;
 	while (cont)
 	{
@@ -55,9 +54,12 @@ int main()
 			}
 		}
 	}
-	
 	for (int i = 0; i < names.size(); i++)
 		cout << names[i] + " " << scores[i] << endl;
+}
 
+int main()
+{
+	addNamesAndScores();
 	return 0;
 }
