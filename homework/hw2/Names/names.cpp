@@ -16,6 +16,11 @@ using std::endl;
 using std::vector;
 using std::string;
 
+void inputNames(vector<string> vec, string str)
+{
+	vec.push_back(str);
+}
+
 int main()
 {
 	vector<string> names;
@@ -24,7 +29,7 @@ int main()
 		string name = "";
 		cout << "Enter a name: ";
 		getline(cin, name);
-		names.push_back(name);
+		inputNames(names, name);
 	}
 	return 0;
 }
