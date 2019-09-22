@@ -16,9 +16,27 @@ using std::endl;
 using std::vector;
 using std::string;
 
-void inputNames(vector<string> vec, string str)
+/*
+This function takes a vector<string> and string as parameters and
+adds the string to the vector.
+*/
+void inputName(vector<string> vec, string str)
 {
 	vec.push_back(str);
+}
+
+/*
+This function takes a vector<string> and string as parameters and
+determines if the string exists in the vector.
+*/
+bool doesNameExist(vector<string> vec, string str)
+{
+	for (int i = 0; i < vec.size(); i++)
+	{
+		if (vec[i].compare(str) == 0)
+			return true;
+	}
+	return false;
 }
 
 int main()
@@ -29,7 +47,7 @@ int main()
 		string name = "";
 		cout << "Enter a name: ";
 		getline(cin, name);
-		inputNames(names, name);
+		inputName(names, name);
 	}
 	return 0;
 }
