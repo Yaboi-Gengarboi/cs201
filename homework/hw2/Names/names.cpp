@@ -39,6 +39,16 @@ bool doesNameExist(vector<string> vec, string str)
 	return false;
 }
 
+/*
+This function takes a vector<string> as a parameter and prints
+each string in the vector.
+*/
+void printNames(vector<string> vec)
+{
+	for (int i = 0; i < vec.size(); i++)
+		cout << vec[i] << endl;
+}
+
 int main()
 {
 	vector<string> names;
