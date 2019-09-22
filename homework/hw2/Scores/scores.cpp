@@ -2,8 +2,11 @@
 scores.cpp
 Justyn P. Durnford
 Created on 9/20/2019
-Finished on
-
+Finished on 9/21/2019
+This program allows the user to enter a name and score in 1 line
+until they enter the combination NoName 0. After that, they can
+choose between adding more pairs, printing the pairs, searching
+for a name or searching for a score.
 */
 
 #include <iostream>
@@ -24,6 +27,11 @@ int space = 0;
 string name = "";
 int score = 0;
 
+/*
+This function, as the name suggests, adds names and scores to their
+respective vectors. However, it also seperates the name and score
+in doing so. This repeats until the user enters NoName 0.
+*/
 void addNamesAndScores()
 {
 	bool cont = true;
@@ -61,33 +69,30 @@ void addNamesAndScores()
 int main()
 {
 	addNamesAndScores();
-	string f = "";
+	int f = -1;
 	string find = "";
 	bool found = false;
-	while (f.compare("0") != 0)
+	while (f != 0)
 	{
 		cout << "Enter 1 to continue to add names and scores." << endl;
 		cout << "Enter 2 to print the names and scores." << endl;
-		cout << "Enter 3 to search for a score assigned to a specific name." << endl;
-		cout << "Enter 4 to search for a name assigned to a specific score." << endl;
+		cout << "Enter 3 to search for a name." << endl;
+		cout << "Enter 4 to search for a score." << endl;
 		cout << "Enter 0 to quit." << endl;
 		cin >> f;
-		if (f.compare("0") == 0)
+		switch (f)
 		{
-
-		}
-		else if (f.compare("1") == 0)
-		{
+		case 0:
+			break;
+		case 1:
 			cin.ignore();
 			addNamesAndScores();
-		}
-		else if (f.compare("2") == 0)
-		{
+			break;
+		case 2:
 			for (int i = 0; i < names.size(); i++)
 				cout << names[i] << " " << scores[i] << endl;
-		}
-		else if (f.compare("3") == 0)
-		{
+			break;
+		case 3:
 			cin.ignore();
 			cout << "Enter a name to search for." << endl;
 			cin >> find;
@@ -101,13 +106,26 @@ int main()
 			}
 			if (found == false)
 				cout << "The name " << find << " was not found." << endl;
-		}
-		else if (f.compare("4") == 0)
-		{
+			break;
+		case 4:
 			cin.ignore();
-		}
-		else
+			cout << "Enter a score to search for." << endl;
+			cin >> find;
+			for (int i = 0; i < scores.size(); i++)
+			{
+				if (scores[i] == stoi(find) && !found)
+				{
+					found = true;
+					cout << scores[i] << " is the score of " << names[i] << endl;
+				}
+			}
+			if (found == false)
+				cout << "The score " << find << " was not found." << endl;
+			break;
+		default:
 			cout << "Invalid input. Try again." << endl;
+			break;
+		}
 	}
 	return 0;
 }
