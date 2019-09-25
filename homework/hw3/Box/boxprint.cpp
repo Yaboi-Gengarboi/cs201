@@ -32,4 +32,5 @@ void printBox(int layers, string message)
 			cout << "*";
 		cout << endl;
 	}
+	cout << endl;
 }

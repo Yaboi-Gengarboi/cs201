@@ -10,5 +10,13 @@ Finished on 9/
 
 int main()
 {
+	string message = "";
+	int layers = 0;
+	cout << "Enter a message for the box: ";
+	cin >> message;
+	cout << endl << "Enter an amount of layers for the box: ";
+	cin >> layers;
+	cout << endl;
+	printBox(layers, message);
 	return 0;
 }
