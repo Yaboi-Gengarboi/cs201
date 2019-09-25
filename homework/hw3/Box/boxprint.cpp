@@ -34,3 +34,15 @@ void printBox(int layers, string message)
 	}
 	cout << endl;
 }
+
+//See box.hpp
+void prompt()
+{
+	string message = "";
+	int layers = 0;
+	cout << "Enter a message for the box: ";
+	cin >> message;
+	cout << "Enter an amount of layers for the box: ";
+	cin >> layers;
+	printBox(layers, message);
+}

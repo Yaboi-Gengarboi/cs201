@@ -25,4 +25,10 @@ surrounding specified message.
 */
 void printBox(int layers, string message);
 
+/*
+Prompts the user to enter a message and amount
+of layers for the box.
+*/
+void prompt();
+
 #endif

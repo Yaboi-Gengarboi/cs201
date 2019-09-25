@@ -10,13 +10,24 @@ Finished on 9/
 
 int main()
 {
-	string message = "";
-	int layers = 0;
-	cout << "Enter a message for the box: ";
-	cin >> message;
-	cout << endl << "Enter an amount of layers for the box: ";
-	cin >> layers;
-	cout << endl;
-	printBox(layers, message);
+	int f = -1;
+	prompt();
+	while (f != 0)
+	{
+		cout << endl << "Would you like to continue?" << endl;
+		cout << "Enter 1 to continue." << endl;
+		cout << "Enter 0 to quit." << endl;
+		cin >> f;
+		switch (f)
+		{
+		case 0:
+			break;
+		case 1:
+			prompt();
+			break;
+		default:
+			cout << "Invalid input. Try again." << endl;
+		}
+	}
 	return 0;
 }
