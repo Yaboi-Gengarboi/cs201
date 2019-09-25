@@ -6,6 +6,8 @@ Finished on 9/
 
 */
 
+#include "box.hpp"
+
 int main()
 {
 	return 0;

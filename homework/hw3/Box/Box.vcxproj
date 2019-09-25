@@ -123,11 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="boxer.cpp" />
+    <ClCompile Include="boxMain.cpp" />
     <ClCompile Include="boxprint.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="boxer.hpp" />
+    <ClInclude Include="box.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
