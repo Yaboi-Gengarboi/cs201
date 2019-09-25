@@ -2,8 +2,9 @@
 boxprint.cpp
 Justyn P. Durnford
 Created on 9/24/2019
-Finished on 9/
-
+Finished on 9/24/2019
+Contains functions needed to contrsuct the box
+and to prompt the user for input.
 */
 
 #include "box.hpp"
@@ -44,5 +45,8 @@ void prompt()
 	cin >> message;
 	cout << "Enter an amount of layers for the box: ";
 	cin >> layers;
-	printBox(layers, message);
+	if (layers >= 0)
+		printBox(layers, message);
+	else
+		cout << "ERROR: Layers entered is non-positive." << endl;
 }

@@ -1,9 +1,8 @@
 /*
-boxer.hpp
+box.hpp
 Justyn P. Durnford
 Created on 9/24/2019
-Finished on 9/
-
+Finished on 9/24/2019
 Header file for Box hw project
 */
 

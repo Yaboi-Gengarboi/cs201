@@ -1,9 +1,10 @@
 /*
-boxer.cpp
+boxMain.cpp
 Justyn P. Durnford
 Created on 9/24/2019
-Finished on 9/
-
+Finished on 9/24/2019
+Main file, calls boxprint.cpp, contains loop
+to print boxes multiple times.
 */
 
 #include "box.hpp"
@@ -14,7 +15,7 @@ int main()
 	prompt();
 	while (f != 0)
 	{
-		cout << endl << "Would you like to continue?" << endl;
+		cout << "Would you like to continue?" << endl;
 		cout << "Enter 1 to continue." << endl;
 		cout << "Enter 0 to quit." << endl;
 		cin >> f;
