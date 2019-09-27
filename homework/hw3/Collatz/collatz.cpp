@@ -38,3 +38,15 @@ void collatz(int k)
 	}
 	cout << endl;
 }
+
+int main()
+{
+	int k = 1;
+	cout << "Enter a positive non-zero integer to put in the Collatz conjecture: ";
+	cin >> k;
+	if (k < 1)
+		cout << "ERROR: Invalid input. Try again." << endl;
+	else
+		collatz(k);
+	return 0;
+}
