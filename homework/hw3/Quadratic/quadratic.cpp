@@ -2,8 +2,11 @@
 quadratic.cpp
 Justyn P. Durnford
 Created on 9/27/2019
-Finished on 
-
+Finished on 9/28/2019
+Takes 3 numerical inputs from the user
+and plugs them into the quadratic equation
+and solves. Also works with imaginary
+solutions.
 */
 
 #include <iostream>
@@ -85,7 +88,7 @@ void quadratic(double a, double b, double c)
 					break;
 				case 2:
 					cout << "(" << -b << " - " << "sqrt(" << d << ")) / (" << 2 * a << ") , ";
-					cout << "(" << -b << " + " << "sqrt(" << d << ")) / (" << 2 * a << ") , " << endl;
+					cout << "(" << -b << " + " << "sqrt(" << d << ")) / (" << 2 * a << ")" << endl;
 					break;
 				default:
 					cout << "ERROR: Invalid input. Try again." << endl;
