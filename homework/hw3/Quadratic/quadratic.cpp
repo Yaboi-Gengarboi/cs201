@@ -19,6 +19,7 @@ using std::sqrt;
 Calculates the solution to a polynomial
 via the quadratic equation:
 x = (-b +- sqrt(b^2 - 4 * a * c)) / (2 * a)
+Uses i = sqrt(-1) for imaginary solutions.
 */
 void quadratic(double a, double b, double c)
 {
@@ -28,6 +29,7 @@ void quadratic(double a, double b, double c)
 	if (d < 0)
 	{
 		int f = -1;
+		int g = -1;
 		while (f != 0 && f != 1)
 		{
 			cout << "WARNING: This polynomial has non-real answers." << endl;
@@ -39,7 +41,27 @@ void quadratic(double a, double b, double c)
 				case 0:
 					break;
 				case 1:
-
+					d *= -1;
+					while (g != 1 && g != 2)
+					{
+						cout << "Enter 1 to print the answers in decimal form." << endl;
+						cout << "Enter 2 to print the answers in fraction form." << endl;
+						cin >> g;
+						switch (g)
+						{
+						case 1:
+							cout << -b / (2 * a) << " - " << sqrt(d) / (2 * a) << "i , ";
+							cout << -b / (2 * a) << " + " << sqrt(d) / (2 * a) << "i" << endl;
+							break;
+						case 2:
+							cout << "(" << -b << " - " << "i * sqrt(" << d << ")) / (" << 2 * a << ") , ";
+							cout << "(" << -b << " + " << "i * sqrt(" << d << ")) / (" << 2 * a << ")" << endl;
+							break;
+						default:
+							cout << "ERROR: Invalid input. Try again." << endl;
+							break;
+						}
+					}
 					break;
 				default:
 					cout << "ERROR: Invalid input. Try again." << endl;
