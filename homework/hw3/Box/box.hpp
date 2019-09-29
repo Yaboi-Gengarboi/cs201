@@ -15,6 +15,7 @@ using std::string;
 using std::cin;
 using std::cout;
 using std::endl;
+using std::getline;
 
 /*
 Prints box with specified amount of layers of (*)

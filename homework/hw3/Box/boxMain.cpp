@@ -2,7 +2,7 @@
 boxMain.cpp
 Justyn P. Durnford
 Created on 9/24/2019
-Finished on 9/24/2019
+Finished on 9/28/2019
 Main file, calls boxprint.cpp, contains loop
 to print boxes multiple times.
 */
@@ -24,6 +24,7 @@ int main()
 		case 0:
 			break;
 		case 1:
+			cin.ignore();
 			prompt();
 			break;
 		default:
