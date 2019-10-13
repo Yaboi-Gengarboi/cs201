@@ -6,3 +6,12 @@ Finished on
 
 */
 
+#include "tokenizer.hpp"
+
+bool readLine(string& str)
+{
+	getline(cin, str);
+	if (str.empty())
+		return false;
+	return true;
+}

@@ -6,7 +6,12 @@ Finished on
 
 */
 
+#include "tokenizer.hpp"
+
 int main()
 {
+	string str = "";
+	if (!readLine(str))
+		cout << "false";
 	return 0;
 }
