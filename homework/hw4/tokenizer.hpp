@@ -7,24 +7,34 @@ Finished on
 */
 
 #include <string>
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <sstream>
 
 using std::string;
+using std::vector;
 using std::cout;
+using std::endl;
 using std::cin;
 using std::getline;
-using std::vector;
+using std::istringstream;
+
+/*
+Reads line of input and ensures
+that the line is not empty.
+Assigns the line to str if it
+is not.
+@param string line: String to
+write line to.
+@return true/false, false if
+str is empty.
+*/
+bool readLine(string& line);
 
 /*
 
 */
-bool readLine(string& str);
-
-/*
-
-*/
-unsigned int stringToTokensWS(vector<string>& tokens);
+unsigned int stringToTokensWS(vector<string>& tokens, string& line);
 
 /*
 

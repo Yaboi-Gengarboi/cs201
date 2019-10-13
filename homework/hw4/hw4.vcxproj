@@ -124,7 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="tokenizer.cpp" />
-    <ClCompile Include="tokenizertest.cpp" />
+    <ClCompile Include="tokenizermain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tokenizer.hpp" />

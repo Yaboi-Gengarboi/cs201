@@ -18,7 +18,7 @@
     <ClCompile Include="tokenizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tokenizertest.cpp">
+    <ClCompile Include="tokenizermain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
