@@ -10,9 +10,9 @@ Finished on
 
 int main()
 {
-	/*
 	vector<string> tokens;
 	string line;
+	/*
 
 		cout << "Enter text. Enter \"end\", \"End\" or \"END\" to finish." << endl;
 		while (!readLine(line))
@@ -27,9 +27,12 @@ int main()
 	return 0;
 	*/
 
-	cout << getType("\"Hey\"") << endl;
-	cout << getType("Hey") << endl;
-	cout << getType("0.68192") << endl;
-	cout << getType("22");
+	tokens.push_back("\"Hey\"");
+	tokens.push_back("Hey");
+	tokens.push_back("0.68192");
+	tokens.push_back("22");
+	tokens.push_back("\"\"");
+	analyzeTokens(tokens);
+
 	return 0;
 }
