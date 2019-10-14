@@ -22,21 +22,34 @@ unsigned int stringToTokensWS(vector<string>& tokens, string& line)
 	string str = " ";
 	
 	int index = 0;
-	while (index < line.size())
+	if (line.compare("end") != 0
+		&& line.compare("End") != 0
+		&& line.compare("END") != 0)
 	{
-		stream >> str;
-		index += str.size() + 1;
-		tokens.push_back(str);
+		while (index < line.size())
+		{
+			stream >> str;
+			index += str.size() + 1;
+			tokens.push_back(str);
+			tokens.push_back("");
+		}
 	}
-	tokens.push_back("");
 	
 	return tokens.size() - 1;
 }
 
 string getType(string str)
 {
-	string type = "[Identifier]";
 	istringstream stream(str);
+	string type = "[Identifier]";
+
+	for (char c : str)
+	{
+		if (!isalnum(c) && c != '_')
+		{
+			type = "[Other]";
+		}
+	}
 
 	if (str.empty())
 		type = "[Whitespace]";

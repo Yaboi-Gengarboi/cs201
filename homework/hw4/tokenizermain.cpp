@@ -11,27 +11,17 @@ Finished on
 int main()
 {
 	vector<string> tokens;
-	string line;
-	/*
+	string line = "";
 
+	while (line.compare("end") != 0
+		   && line.compare("End") != 0
+		   && line.compare("END") != 0)
+	{
 		cout << "Enter text. Enter \"end\", \"End\" or \"END\" to finish." << endl;
-		while (!readLine(line))
-		{
-			cout << "Enter text. Enter \"end\", \"End\" or \"END\" to finish." << endl;
-		}
+		if (readLine(line))
+			stringToTokensWS(tokens, line);
 
-		stringToTokensWS(tokens, line);
-
-		analyzeTokens(tokens);
-
-	return 0;
-	*/
-
-	tokens.push_back("\"Hey\"");
-	tokens.push_back("Hey");
-	tokens.push_back("0.68192");
-	tokens.push_back("22");
-	tokens.push_back("\"\"");
+	}
 	analyzeTokens(tokens);
 
 	return 0;
