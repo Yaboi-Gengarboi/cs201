@@ -2,8 +2,8 @@
 tokenizer.cpp
 Justyn P. Durnford
 Created on 10/12/2019
-Finished on
-
+Finished on 10/13/2019
+Primary source file for Tokenizer
 */
 
 #include "tokenizer.hpp"
