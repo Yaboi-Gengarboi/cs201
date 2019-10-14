@@ -22,19 +22,31 @@ using std::istringstream;
 /*
 Reads line of input and ensures
 that the line is not empty.
-Assigns the line to str if it
+Assigns the line of text to line if it
 is not.
 @param string line: String to
 write line to.
 @return true/false, false if
-str is empty.
+line is empty.
 */
 bool readLine(string& line);
 
 /*
-
+Seperates line into individual strings
+and puts them into vector tokens.
+@param vector<string> tokens: vector
+to put strings in.
+@param string line: Line to segment
+into individual strings.
+@return Amount of strings added to
+tokens.
 */
 unsigned int stringToTokensWS(vector<string>& tokens, string& line);
+
+/*
+
+*/
+string getType(string str);
 
 /*
 
