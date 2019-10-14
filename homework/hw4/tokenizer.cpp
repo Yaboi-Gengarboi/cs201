@@ -38,42 +38,47 @@ unsigned int stringToTokensWS(vector<string>& tokens, string& line)
 	return tokens.size() - 1;
 }
 
-string getType(string str)
+void getType(string str)
 {
 	istringstream stream(str);
-	string type = "[Identifier]";
+
+	if (str.empty())
+	{
+		cout << "[Whitespace] \t";
+		return;
+	}
+
+	double dec;
+	stream >> dec;
+	if (stream)
+	{
+		cout << "[Number] \t";
+		return;
+	}
+
+	if (str[0] == '"' && str[str.size() - 1] == '"')
+	{
+		cout << "[String] \t";
+		return;
+	}
 
 	for (char c : str)
 	{
 		if (!isalnum(c) && c != '_')
 		{
-			type = "[Other]";
+			cout << "[Other] \t";
+			return;
 		}
 	}
 
-	if (str.empty())
-		type = "[Whitespace]";
-
-	int num;
-	stream >> num;
-	if (stream)
-		type = "[Integer]";
-
-	double dec;
-	stream >> dec;
-	if (stream)
-		type = "[Double]";
-
-	if (str[0] == '"' && str[str.size() - 1] == '"')
-		type = "[String]";
-
-	return type;
+	cout << "[Identifier] \t";
 }
 
 void analyzeTokens(const vector<string>& tokens)
 {
 	for (string token : tokens)
 	{
-		cout << getType(token) << "\t" << token << endl;
+		getType(token);
+		cout << token << endl;
 	}
 }
