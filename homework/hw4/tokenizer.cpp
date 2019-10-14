@@ -8,10 +8,59 @@ Finished on
 
 #include "tokenizer.hpp"
 
-bool readLine(string& str)
+bool readLine(string& line)
 {
-	getline(cin, str);
-	if (str.empty())
+	getline(cin, line);
+	if (line.empty())
 		return false;
 	return true;
+}
+
+unsigned int stringToTokensWS(vector<string>& tokens, string& line)
+{
+	istringstream stream(line);
+	string str = " ";
+	
+	int index = 0;
+	while (index < line.size())
+	{
+		stream >> str;
+		index += str.size() + 1;
+		tokens.push_back(str);
+	}
+	tokens.push_back("");
+	
+	return tokens.size() - 1;
+}
+
+string getType(string str)
+{
+	string type = "[Identifier]";
+	istringstream stream(str);
+
+	if (str.empty())
+		type = "[Whitespace]";
+
+	int num;
+	stream >> num;
+	if (stream)
+		type = "[Integer]";
+
+	double dec;
+	stream >> dec;
+	if (stream)
+		type = "[Double]";
+
+	if (str[0] == '"' && str[str.size() - 1] == '"')
+		type = "[String]";
+
+	return type;
+}
+
+void analyzeTokens(const vector<string>& tokens)
+{
+	for (string token : tokens)
+	{
+		cout << getType(token) << "\t" << token << endl;
+	}
 }
