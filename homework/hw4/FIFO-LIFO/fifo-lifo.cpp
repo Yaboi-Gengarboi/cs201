@@ -21,7 +21,7 @@ using std::endl;
 
 void fifoPush(vector<string>& container, const string& item)
 {
-
+	
 }
 
 string fifoPop(vector<string>& container)
@@ -57,6 +57,16 @@ bool isContainerEmpty(const vector<string>& container)
 void printContainer(const vector<string>& container)
 {
 	
+}
+
+bool testFifo()
+{
+
+}
+
+bool testLifo()
+{
+
 }
 
 /*
