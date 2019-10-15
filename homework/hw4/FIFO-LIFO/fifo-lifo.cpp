@@ -70,7 +70,8 @@ bool isContainerEmpty(const vector<string>& container)
 
 void printContainer(const vector<string>& container)
 {
-
+	for (string item : container)
+		cout << item << endl;
 }
 
 //First In First Out
