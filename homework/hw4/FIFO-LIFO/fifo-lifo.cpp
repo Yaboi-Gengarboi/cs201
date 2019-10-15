@@ -103,15 +103,22 @@ string fifoPop(vector<string>& container)
 void lifoPush(vector<string>& container, const string& item)
 {
 	container.push_back(item);
-	cout << "Item added." << endl;
+	cout << item << " added." << endl;
 }
 
 string lifoPop(vector<string>& container)
 {
 	string str = " ";
-
-
-
+	if (isContainerEmpty(container))
+	{
+		cout << "The container is empty." << endl;
+	}
+	else
+	{
+		str = container[container.size() - 1];
+		cout << str << " removed." << endl;
+		container.pop_back();
+	}
 	return str;
 }
 
