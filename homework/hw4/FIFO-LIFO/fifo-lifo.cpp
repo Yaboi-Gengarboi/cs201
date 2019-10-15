@@ -40,7 +40,8 @@ string fifoPop(vector<string>& container)
 
 void lifoPush(vector<string>& container, const string& item)
 {
-
+	container.push_back(item);
+	cout << "Item added." << endl;
 }
 
 string lifoPop(vector<string>& container)
