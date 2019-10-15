@@ -19,82 +19,6 @@ using std::cout;
 using std::endl;
 using std::istringstream;
 
-//First In First Out
-
-void fifoPush(vector<string>& container, const string& item)
-{
-	container.push_back(item);
-	cout << "Item added." << endl;
-}
-
-string fifoPop(vector<string>& container)
-{
-	string str = " ";
-
-
-
-	return str;
-}
-
-//Last In First Out
-
-void lifoPush(vector<string>& container, const string& item)
-{
-	container.push_back(item);
-	cout << "Item added." << endl;
-}
-
-string lifoPop(vector<string>& container)
-{
-	string str = " ";
-
-
-
-	return str;
-}
-
-bool isContainerEmpty(const vector<string>& container)
-{
-	return false;
-}
-
-void printContainer(const vector<string>& container)
-{
-	
-}
-
-bool testFifo()
-{
-	int key = 1;
-	vector<string> container;
-	string item;
-	
-	while (key != 0)
-	{
-		key = getKey();
-		switch (key)
-		{
-			case -1:
-				cout << "Invalid input. Try again." << endl;
-				break;
-			case 0: //Quit
-				break;
-			case 1:
-				item = getItem();
-				fifoPush(container, item);
-				break;
-		}
-
-	}
-
-	return true;
-}
-
-bool testLifo()
-{
-
-}
-
 /*
 This function prompts the user for an item.
 I am attempting to keep the prompt in its
@@ -135,9 +59,98 @@ int getKey()
 	return key;
 }
 
+bool isContainerEmpty(const vector<string>& container)
+{
+	if ()
+	{
+
+	}
+	return false;
+}
+
+void printContainer(const vector<string>& container)
+{
+
+}
+
+//First In First Out
+
+void fifoPush(vector<string>& container, const string& item)
+{
+	container.push_back(item);
+	cout << item << " added." << endl;
+}
+
+string fifoPop(vector<string>& container)
+{
+	string str = " ";
+	if (isContainerEmpty(container))
+	{
+		cout << "The container is empty." << endl;
+	}
+	else
+	{
+		str = container[0];
+		cout << str << " removed." << endl;
+		container.erase(container.begin());
+	}
+	return str;
+}
+
+//Last In First Out
+
+void lifoPush(vector<string>& container, const string& item)
+{
+	container.push_back(item);
+	cout << "Item added." << endl;
+}
+
+string lifoPop(vector<string>& container)
+{
+	string str = " ";
+
+
+
+	return str;
+}
+
+bool testFifo()
+{
+	int key = 1;
+	vector<string> container;
+	string item;
+	
+	while (key != 0)
+	{
+		key = getKey();
+		switch (key)
+		{
+			case 0: //Quit
+				break;
+			case 1:
+				item = getItem();
+				fifoPush(container, item);
+				break;
+			case 2:
+				fifoPop(container);
+				break;
+			default:
+				cout << "Invalid input. Try again." << endl;
+				break;
+		}
+	}
+	return true;
+}
+
+bool testLifo()
+{
+	return true;
+}
+
 int main()
 {
-	
+	if (testFifo())
+		cout << "Test Successful." << endl;
 
 	return 0;
 }
