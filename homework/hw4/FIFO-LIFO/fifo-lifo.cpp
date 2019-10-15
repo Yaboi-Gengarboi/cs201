@@ -23,7 +23,8 @@ using std::istringstream;
 
 void fifoPush(vector<string>& container, const string& item)
 {
-	
+	container.push_back(item);
+	cout << "Item added." << endl;
 }
 
 string fifoPop(vector<string>& container)
@@ -78,7 +79,9 @@ bool testFifo()
 			case 0: //Quit
 				break;
 			case 1:
-
+				item = getItem();
+				fifoPush(container, item);
+				break;
 		}
 
 	}
