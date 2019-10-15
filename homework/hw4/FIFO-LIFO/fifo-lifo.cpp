@@ -59,6 +59,11 @@ void printContainer(const vector<string>& container)
 
 }
 
+int inputPrompt()
+{
+
+}
+
 int main()
 {
 	return 0;
