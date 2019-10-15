@@ -61,9 +61,9 @@ int getKey()
 
 bool isContainerEmpty(const vector<string>& container)
 {
-	if ()
+	if (container.size() == 0)
 	{
-
+		return true;
 	}
 	return false;
 }
