@@ -15,7 +15,7 @@ void insertionSort(vector<int>& data)
 	int temp;
 	// TODO Write the code for insertionSort
 
-	for (int i = 1; i < data.size() - 1; i++)
+	for (int i = 1; i < data.size(); i++)
 	{
 		if (data[i - 1] > data[i])
 		{
@@ -26,7 +26,9 @@ void insertionSort(vector<int>& data)
 				if (data[j - 1] > temp)
 				{
 					data[j] = data[j - 1];
+					data[j - 1] = temp;
 				}
+				j--;
 			}
 		}
 	}

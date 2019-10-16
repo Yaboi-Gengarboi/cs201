@@ -1,6 +1,6 @@
 /**
  * @file     insertion_sort.hpp
- * @author   Student Name
+ * @author   Justyn P. Durnford
  * @version  Feb 17, 2019
  * John Quan
  * @brief
