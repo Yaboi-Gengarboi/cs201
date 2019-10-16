@@ -2,8 +2,11 @@
 fifo-lifo.cpp
 Justyn P. Durnford
 Created on 10/15/2019
-Finished on
-
+Finished on 10/15/2019
+Allows the user to add items into
+a container and then remove them
+with either the FIFO or LIFO
+principles.
 */
 
 #include <string>
@@ -59,6 +62,9 @@ int getKey()
 	return key;
 }
 
+/*
+Returns true if the vector is empty
+*/
 bool isContainerEmpty(const vector<string>& container)
 {
 	if (container.size() == 0)
@@ -68,6 +74,9 @@ bool isContainerEmpty(const vector<string>& container)
 	return false;
 }
 
+/*
+Prints the contents of the container
+*/
 void printContainer(const vector<string>& container)
 {
 	for (string item : container)
@@ -76,12 +85,19 @@ void printContainer(const vector<string>& container)
 
 //First In First Out
 
+/*
+Adds item to the container
+*/
 void fifoPush(vector<string>& container, const string& item)
 {
 	container.push_back(item);
 	cout << item << " added." << endl;
 }
 
+/*
+Removes the first item in the container
+and returns it
+*/
 string fifoPop(vector<string>& container)
 {
 	string str = " ";
@@ -100,12 +116,19 @@ string fifoPop(vector<string>& container)
 
 //Last In First Out
 
+/*
+Adds item to the container
+*/
 void lifoPush(vector<string>& container, const string& item)
 {
 	container.push_back(item);
 	cout << item << " added." << endl;
 }
 
+/*
+Removes the last item in the container
+and returns it
+*/
 string lifoPop(vector<string>& container)
 {
 	string str = " ";
@@ -122,6 +145,9 @@ string lifoPop(vector<string>& container)
 	return str;
 }
 
+/*
+Test for Fifo
+*/
 bool testFifo()
 {
 	int key = 1;
@@ -140,7 +166,7 @@ bool testFifo()
 				fifoPush(container, item);
 				break;
 			case 2:
-				fifoPop(container);
+				item = fifoPop(container);
 				break;
 			default:
 				cout << "Invalid input. Try again." << endl;
@@ -150,8 +176,34 @@ bool testFifo()
 	return true;
 }
 
+/*
+Test for Lifo
+*/
 bool testLifo()
 {
+	int key = 1;
+	vector<string> container;
+	string item;
+
+	while (key != 0)
+	{
+		key = getKey();
+		switch (key)
+		{
+		case 0: //Quit
+			break;
+		case 1:
+			item = getItem();
+			lifoPush(container, item);
+			break;
+		case 2:
+			item = lifoPop(container);
+			break;
+		default:
+			cout << "Invalid input. Try again." << endl;
+			break;
+		}
+	}
 	return true;
 }
 
@@ -159,6 +211,7 @@ int main()
 {
 	if (testFifo())
 		cout << "Test Successful." << endl;
-
+	if (testLifo())
+		cout << "Test Successful." << endl;
 	return 0;
 }
