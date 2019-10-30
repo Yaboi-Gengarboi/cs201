@@ -21,9 +21,7 @@ using std::random_device;
 using std::default_random_engine;
 using std::uniform_int_distribution;
 
-/*
-Prints the contents of a vector<int>
-*/
+//Prints the contents of a vector<int>
 void printIntVector(const vector<int>& vec)
 {
 	cout << "{ ";
