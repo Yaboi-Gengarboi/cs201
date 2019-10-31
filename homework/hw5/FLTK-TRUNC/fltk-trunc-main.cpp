@@ -7,15 +7,22 @@ Last Updated on 10/30/2019
 
 #include "truncstruct.hpp"
 
+#include <sstream>
+
 #include <FL/Fl.H>
 #include <FL/Fl_Widget.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Input.H>
-#include <FL/Fl_ask.H>
+#include <FL/Fl_ask.h>
 
 using std::string;
+using std::istringstream;
+
+Fl_Input* textInput;
+Fl_Input* truncInput;
+StringInfo SI{ "DUMMY", 5 };
 
 void quit_callback(Fl_Widget* widget)
 {
@@ -25,7 +32,24 @@ void quit_callback(Fl_Widget* widget)
 
 void trunc_callback(Fl_Widget* widget)
 {
-	
+	string str = textInput->value();
+
+	istringstream istream(truncInput->value());
+	size_t len;
+	istream >> len;
+
+	if (!istream)
+	{
+
+	}
+	else
+	{
+		SI.str = str;
+		SI.len = len;
+
+		StringInfo tempSI = trunc(SI);
+		SI = tempSI;
+	}
 }
 
 int main()
@@ -34,9 +58,9 @@ int main()
 	window->callback(quit_callback);
 
 	//String input
-	Fl_Input* textInput = new Fl_Input(50, 100, 300, 25);
+	textInput = new Fl_Input(50, 100, 300, 25);
 	//Int input
-	Fl_Input* truncInput = new Fl_Input(300, 130, 50, 25);
+	truncInput = new Fl_Input(300, 130, 50, 25);
 
 	Fl_Button* truncButton = new Fl_Button(50, 170, 60, 60, "TRUNC");
 
