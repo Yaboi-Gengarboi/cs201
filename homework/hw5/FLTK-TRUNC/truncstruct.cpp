@@ -16,7 +16,6 @@
 
 #include "truncstruct.hpp"
 // For struct StringInfo definition
-#include <string>
 using std::string;
 #include <cctype>
 using std::toupper;
