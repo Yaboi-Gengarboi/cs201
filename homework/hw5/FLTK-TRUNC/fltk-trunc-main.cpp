@@ -68,7 +68,7 @@ int main()
 	truncInput = new Fl_Input(300, 130, 50, 25);
 
 	Fl_Button* truncButton = new Fl_Button(50, 170, 60, 60, "TRUNC");
-
+	truncButton->callback(trunc_callback);
 
 	Fl_Button* quitButton = new Fl_Button(120, 170, 60, 60, "QUIT");
 	quitButton->callback(quit_callback);
