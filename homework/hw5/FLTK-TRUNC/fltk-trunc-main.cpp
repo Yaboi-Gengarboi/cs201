@@ -2,7 +2,7 @@
 fltk-trunc-main.cpp
 Justyn P. Durnford
 Created on 10/30/2019
-Last Updated on 10/30/2019
+Last Updated on 10/31/2019
 */
 
 #include "truncstruct.hpp"
@@ -20,9 +20,10 @@ Last Updated on 10/30/2019
 using std::string;
 using std::istringstream;
 
+Fl_Box* box;
 Fl_Input* textInput;
 Fl_Input* truncInput;
-StringInfo SI{ "DUMMY", 5 };
+StringInfo SI{ "", 0 };
 
 void quit_callback(Fl_Widget* widget)
 {
@@ -46,9 +47,9 @@ void trunc_callback(Fl_Widget* widget)
 	{
 		SI.str = str;
 		SI.len = len;
-
-		StringInfo tempSI = trunc(SI);
-		SI = tempSI;
+		SI = trunc(SI);
+		const char* text = SI.str.c_str();
+		box->label(text);
 	}
 }
 
@@ -56,6 +57,10 @@ int main()
 {
 	Fl_Window* window = new Fl_Window(400, 400);
 	window->callback(quit_callback);
+
+	box = new Fl_Box(50, 20, 300, 70);
+	box->label("Enter a string and an integer");
+	box->box(FL_BORDER_BOX);
 
 	//String input
 	textInput = new Fl_Input(50, 100, 300, 25);
