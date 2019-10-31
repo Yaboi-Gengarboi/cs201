@@ -10,7 +10,7 @@
 // Chris Hartman
 // For CS 201 Fall 2018
 //
-// Last Modified on 10/30/2019
+// Last Modified on 10/31/2019
 // Justyn P. Durnford
 // For CS 201 Homework 5
 
@@ -22,7 +22,8 @@ using std::toupper;
 
 // trunc
 // (See header for description.)
-StringInfo trunc(const StringInfo& stringInfo) {
+StringInfo trunc(const StringInfo& stringInfo)
+{
 	// Get input string & maxlen
 	string s = stringInfo.str;
 	auto maxlen = stringInfo.len;
@@ -34,7 +35,8 @@ StringInfo trunc(const StringInfo& stringInfo) {
 	auto len = (s.size());
 
 	// Convert string to upper-case
-	for (std::size_t i = 0; i < len; ++i) {
+	for (std::size_t i = 0; i < len; ++i)
+	{
 		s[i] = char(toupper(s[i]));
 	}
 	// Create return value
@@ -43,6 +45,7 @@ StringInfo trunc(const StringInfo& stringInfo) {
 
 // trunc8
 // (See header for description.)
-StringInfo trunc8(const string& str) {
+StringInfo trunc8(const string& str)
+{
 	return trunc(StringInfo{ str, 8 });
 }

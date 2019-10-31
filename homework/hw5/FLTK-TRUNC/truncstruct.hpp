@@ -10,7 +10,7 @@
 // John Quan
 // For CS 201 Fall 2019
 //
-// Last Modified on 10/30/2019
+// Last Modified on 10/31/2019
 // Justyn P. Durnford
 // For CS 201 Homework 5
 
@@ -22,7 +22,8 @@
 /**
  * Holds string and info about its length.
  */
-struct StringInfo {
+struct StringInfo
+{
 	std::string str;
 	std::size_t len;
 };
