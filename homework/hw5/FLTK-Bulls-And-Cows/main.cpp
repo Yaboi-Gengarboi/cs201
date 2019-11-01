@@ -6,6 +6,8 @@ Last updated on 11/1/2019
 Main file for FLTK-Bulls-And-Cows
 */
 
+#include "bulls-and-cows.hpp"
+
 int main()
 {
 
