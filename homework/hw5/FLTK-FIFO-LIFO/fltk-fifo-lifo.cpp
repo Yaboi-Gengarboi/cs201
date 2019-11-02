@@ -1,5 +1,5 @@
 /*
-fifo-lifo.cpp
+fltk-fifo-lifo.cpp
 Justyn P. Durnford
 Created on 10/15/2019
 Last updated on 11/2/2019
@@ -9,6 +9,7 @@ with either the FIFO or LIFO
 principles.
 */
 
+#include "fltk-fifo-lifo.hpp"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -205,13 +206,4 @@ bool testLifo()
 		}
 	}
 	return true;
-}
-
-int main()
-{
-	if (testFifo())
-		cout << "Test Successful." << endl;
-	if (testLifo())
-		cout << "Test Successful." << endl;
-	return 0;
 }
