@@ -2,7 +2,7 @@
 fltk-trunc-main.cpp
 Justyn P. Durnford
 Created on 10/30/2019
-Last Updated on 10/31/2019
+Last Updated on 11/2/2019
 */
 
 #include "truncstruct.hpp"
@@ -34,14 +34,15 @@ void quit_callback(Fl_Widget* widget)
 void trunc_callback(Fl_Widget* widget)
 {
 	string str = textInput->value();
+	string str2 = truncInput->value();
 
-	istringstream istream(truncInput->value());
+	istringstream istream(str2);
 	size_t len;
 	istream >> len;
 
 	if (!istream)
 	{
-
+		box->label("Please enter a positive integer.");
 	}
 	else
 	{
