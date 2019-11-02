@@ -2,7 +2,7 @@
 main.cpp
 Justyn P. Durnford
 Created on 11/1/2019
-Last updated on 11/1/2019
+Last updated on 11/2/2019
 Main file for FLTK-Bulls-And-Cows
 */
 
@@ -26,10 +26,8 @@ vector<int> nums;
 vector<int> guess;
 int common;
 
-Fl_Input* digit0;
-Fl_Input* digit1;
-Fl_Input* digit2;
-Fl_Input* digit3;
+Fl_Box* box;
+Fl_Input* input;
 
 //Allows the window to close
 void quit_callback(Fl_Widget* widget)
@@ -45,7 +43,23 @@ be evaluated.
 */
 void guess_callback(Fl_Widget* widget)
 {
+	string str = input->value();
+	istringstream istream(str);
+	int guessInput;
+
+	istream >> guessInput;
+	if (!istream)
+	{
+
+	}
+	else
+	{
+
+	}
+
 	common = compareDigits(nums, guess);
+	string out = "" + common;
+	box->label(out.c_str());
 }
 
 int main()
@@ -54,4 +68,14 @@ int main()
 
 	Fl_Window* window = new Fl_Window(400, 400);
 	window->callback(quit_callback);
+
+	box = new Fl_Box(50, 20, 300, 70);
+	box->label("Enter 4 digits");
+	box->box(FL_BORDER_BOX);
+
+
+
+	window->end();
+	window->show();
+	return Fl::run();
 }
