@@ -13,7 +13,12 @@ Main file for FLTK-FIFO-LIFO
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Input.H>
 #include <FL/Fl_Output.H>
+#include <FL/Fl_Box.H>
 #include <FL/Fl_ask.h>
+
+Fl_Input* input;
+Fl_Output* output;
+Fl_Box* box;
 
 //Allows the window to close
 void quit_callback(Fl_Widget* widget)
@@ -26,6 +31,8 @@ int main()
 {
 	Fl_Window* window = new Fl_Window(350, 150);
 	window->callback(quit_callback);
+
+
 
 	window->end();
 	window->show();
