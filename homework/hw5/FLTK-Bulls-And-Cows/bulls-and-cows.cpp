@@ -2,7 +2,7 @@
 bulls-and-cows.cpp
 Justyn P. Durnford
 Created on 10/14/2019
-Last updated on 11/1/2019
+Last updated on 11/2/2019
 Generates 4 random integers and places them in
 a vector and has the user guess at each digit.
 */
@@ -43,6 +43,7 @@ void initVectors(vector<int>& nums, vector<int>& guess)
 	{
 		randomInt = uniform_dist(engine);
 		nums.push_back(randomInt);
+		guess.push_back(0);
 	}
 
 	//This is to make sure that the two vectors are not
