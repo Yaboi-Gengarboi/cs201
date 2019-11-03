@@ -131,10 +131,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="fltk-fifo-lifo.cpp" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="fltk-fifo-lifo.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
