@@ -9,18 +9,20 @@ Last updated on 11/6/2019
 #include <random>
 #include <map>
 #include <string>
-#include <vector>
 #include <iostream>
 
 using std::random_device;
 using std::default_random_engine;
 using std::uniform_int_distribution;
+using std::normal_distribution;
+using std::cout;
+using std::endl;
 
 /*
 Generates a random integer between and including low
 and high.
-We will assume (because we know the user will not be 
-controlling it) that low is less than high.
+We will assume (because we know it will be 1-9) 
+that low is less than high.
 @PARAM int low: Lower integer bound for random number
 generation.
 @PARAM int high: Upper integer bound for random number
@@ -33,10 +35,10 @@ int uniformRandomBetween(int low, int high)
 	int randNum = 0;
 
 	//Create random device
-	random_device rDevice;
+	random_device rDev;
 
 	//Choose a random int between and including low and high
-	default_random_engine engine(rDevice());
+	default_random_engine engine(rDev());
 	uniform_int_distribution<int> uniform_dist(low, high);
 
 	//Assigns a random number to randNum
@@ -53,19 +55,16 @@ int normalRandomBetween(int low, int high)
 	//DUMMY RETURN VALUE
 	int randNum = 0;
 
-	//Mean value
+	//Mean and Standard Deviation values
 	int mean = (low + high) / 2;
+	int stdVar = 2;
 
-	//Create random device
-	random_device rDevice;
-
+	
 	return randNum;
 }
 
 int main()
 {
-	
-
 
 
 
