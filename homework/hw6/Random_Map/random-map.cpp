@@ -53,10 +53,8 @@ vector<int> uniformRandomBetween(int low, int high, size_t size)
 {
 	vector<int> randNums;
 
-	//Create random device
+	//Create random device and generator
 	random_device rDev;
-
-	//Choose a random int between and including low and high
 	default_random_engine engine(rDev());
 	uniform_int_distribution<int> uniform_dist(low, high);
 
@@ -72,31 +70,44 @@ vector<int> uniformRandomBetween(int low, int high, size_t size)
 }
 
 /*
-
+Generates a vector of normally distributed random
+integers with size size and integers between and 
+including low and high. We will assume 
+(because we know it will be 1-9) that low is less than 
+high.
+@PARAM int low: Lower integer bound for random number
+generation.
+@PARAM int high: Upper integer bound for random number
+generation.
+@PARAM size_t size: Amount of integers to generate.
+@RETURN vector<int> randNum: Randomly generated integer
+vector.
 */
-/*
-int normalRandomBetween(int low, int high)
+vector<int> normalRandomBetween(int low, int high, size_t size)
 {
-	//DUMMY RETURN VALUE
-	int randNum = 0;
+	vector<int> randNums;
 
 	//Mean and Standard Deviation values
-	int mean = (low + high) / 2;
-	int stdVar = 1;
+	double mean = (low + high) / 2;
+	double stdVar = 1;
 
-	//Create random device
+	//Create random device and generator
 	random_device rDev;
-
-	//Choose a random int between and including low and high
 	default_random_engine engine(rDev());
-	normal_distribution<int> norm_dist(mean, stdVar);
+	normal_distribution<double> norm_dist(mean, stdVar);
 
-	//Assigns a random number to randNum
-	randNum = norm_dist(engine);
+	int randNum = 0;
+
+	//Assigns a random number to randNums size times
+	for (size_t i = 0; i < size; ++i)
+	{
+		randNum = (int)round(norm_dist(engine));
+		clamp(randNum, low, high);
+		randNums.push_back(randNum);
+	}
 	
-	return randNum;
+	return randNums;
 }
-*/
 
 /*
 
@@ -119,7 +130,7 @@ vector<int> randRandomBetween(int low, int high, size_t size)
 int main()
 {
 	vector<int> rand1 = uniformRandomBetween(1, 9, 100);
-	vector<int> rand2 = randRandomBetween(1, 9, 100);
+	vector<int> rand2 = normalRandomBetween(1, 9, 100);
 
 	cout << "rand1" << endl;
 	for (auto item : rand1)
