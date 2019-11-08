@@ -2,12 +2,13 @@
 random-map.cpp
 Justyn P. Durnford
 Created on 11/6/2019
-Last updated on 11/6/2019
+Last updated on 11/8/2019
 
 */
 
 #include <random>
 #include <stdlib.h>
+#include <cmath>
 #include <map>
 #include <vector>
 #include <iostream>
@@ -16,10 +17,24 @@ using std::random_device;
 using std::default_random_engine;
 using std::uniform_int_distribution;
 using std::normal_distribution;
+using std::round;
 using std::rand;
 using std::vector;
 using std::cout;
 using std::endl;
+
+/*
+This code was provided by Prof. Metzgar via Discord
+on 11/8/2019 at 11:16AM
+Not entirely certain how this code works for now,
+but if x is beyond the endpoints of a or b, it
+assigns x to a and b respectively.
+*/
+template <typename T>
+T clamp(T x, T a, T b)
+{
+	return (x < a) ? (a) : (x > b) ? (b) : (x);
+}
 
 /*
 Generates a vector of random integers with size
