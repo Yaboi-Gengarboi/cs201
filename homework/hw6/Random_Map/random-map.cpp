@@ -20,6 +20,7 @@ using std::normal_distribution;
 using std::round;
 using std::rand;
 using std::vector;
+using std::map;
 using std::cout;
 using std::endl;
 
@@ -127,21 +128,38 @@ vector<int> randRandomBetween(int low, int high, size_t size)
 	return randNums;
 }
 
+/*
+Takes a vector by constant reference and creates a visual
+histogram using a map.
+@PARAM const vector<int>& vec: Vector to base histogram 
+off of.
+@PARAM int low: Lower bound of histogram to print.
+@PARAM int high: Upper bound of histogram to print.
+*/
+void printVectorHistogram(const vector<int>& vec, int low, int high)
+{
+	map<int, int> hist;
+
+	for (int i = low; i <= high; ++i)
+		hist[i] = 0;
+
+	for (int item : vec)
+		++hist[item];
+
+	for (const auto& item : hist)
+	{
+		cout << item.first << " ";
+		for (int i = 0; i < item.second; i++)
+			cout << "*";
+		cout << endl;
+	}
+}
+
 int main()
 {
-	vector<int> rand1 = uniformRandomBetween(1, 9, 100);
-	vector<int> rand2 = normalRandomBetween(1, 9, 100);
+	vector<int> rand2 = normalRandomBetween(1, 9, 300);
 
-	cout << "rand1" << endl;
-	for (auto item : rand1)
-	{
-		cout << item << endl;
-	}
-	cout << "rand2" << endl;
-	for (auto item : rand2)
-	{
-		cout << item << endl;
-	}
+	printVectorHistogram(rand2, 1, 9);
 
 	return 0;
 }
