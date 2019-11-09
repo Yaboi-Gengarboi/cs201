@@ -14,6 +14,8 @@ Last updated on 11/9/2019
 #include <iostream>
 
 using std::cout;
+using std::cin;
+using std::getline;
 using std::endl;
 using std::map;
 using std::vector;
@@ -22,11 +24,32 @@ using std::random_device;
 using std::default_random_engine;
 using std::uniform_int_distribution;
 
+//Prompts the user to enter a letter.
+char getInput()
+{
+	char ch;
+	string line;
+	bool cont = true;
+
+	while (cont)
+	{
+		cout << "Enter a letter" << endl;
+		getline(cin, line);
+		if (!line.empty())
+		{
+			ch = line[0];
+			cont = false;
+		}
+	}
+
+	return ch;
+}
+
 int main()
 {
 	vector<string> words =
 	{
-		"Awkward", "Bagpipes", "Banjo",
+		"Apple", "Bagpipes", "Banjo",
 		"Computer", "Crypt", "Danger",
 		"Eaten", "Favorite", "Fishing",
 		"Gaming", "Great", "Haiku",
