@@ -2,8 +2,9 @@
 random-map.cpp
 Justyn P. Durnford
 Created on 11/6/2019
-Last updated on 11/8/2019
-
+Last updated on 11/9/2019
+Highlights the various methods of generating
+random integers.
 */
 
 #include <random>
@@ -111,7 +112,17 @@ vector<int> normalRandomBetween(int low, int high, size_t size)
 }
 
 /*
-
+Generates a vector of random ints using the
+rand() method containing ints between and including
+low and high. We will assume (because we know it 
+will be 1-9) that low is less than high.
+@PARAM int low: Lower integer bound for random number
+generation.
+@PARAM int high: Upper integer bound for random number
+generation.
+@PARAM size_t size: Amount of integers to generate.
+@RETURN vector<int> randNum: Randomly generated integer
+vector.
 */
 vector<int> randRandomBetween(int low, int high, size_t size)
 {
@@ -157,9 +168,18 @@ void printVectorHistogram(const vector<int>& vec, int low, int high)
 
 int main()
 {
+	vector<int> rand1 = uniformRandomBetween(1, 9, 300);
 	vector<int> rand2 = normalRandomBetween(1, 9, 300);
+	vector<int> rand3 = randRandomBetween(1, 9, 300);
 
+	cout << "Uniform Distribution from 1 - 9" << endl;
+	printVectorHistogram(rand1, 1, 9);
+
+	cout << "Normal Distribution from 1 - 9" << endl;
 	printVectorHistogram(rand2, 1, 9);
+
+	cout << "Distribution using rand() from 1 - 9" << endl;
+	printVectorHistogram(rand3, 1, 9);
 
 	return 0;
 }
