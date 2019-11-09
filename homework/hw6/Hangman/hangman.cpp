@@ -45,6 +45,27 @@ char getInput()
 	return ch;
 }
 
+/*
+Looks if the character from getInput is in
+the word and corrects guess accordingly.
+*/
+bool checkGuess(const string& word, string& guess)
+{
+	bool retVal = false;
+	char ch = getInput();
+	size_t found = word.find(ch);
+
+	//Checks for ch multiple times
+	while (found != -1)
+	{
+		guess[found] = ch;
+		found = word.find(ch, found + 1);
+		retVal = true;
+	}
+
+	return retVal;
+}
+
 int main()
 {
 	vector<string> words =
@@ -54,14 +75,14 @@ int main()
 		"Eaten", "Favorite", "Fishing",
 		"Gaming", "Great", "Haiku",
 		"Happy", "Ivory", "Journal",
-		"Kayak", "Klutz", "Mailbox",
-		"Memory", "Nearby" "Nickel",
-		"Oxygen", "Pajama", "Pixel",
-		"Polka", "Queen", "Quick",
-		"Rhythm", "Rogue", "Sphinx",
-		"Shovle", "Today", "Twenty",
-		"Unzip", "Violin", "Wonder",
-		"Western", "Xenon", "Yacht", 
+		"Kayak", "Klutz", "Length", 
+		"Mailbox", "Memory", "Nearby", 
+		"Nickel", "Oxygen", "Pajama", 
+		"Pixel", "Polka", "Queen", 
+		"Quick", "Rhythm", "Rogue", 
+		"Sphinx", "Shovle", "Today", 
+		"Twenty", "Unzip", "Violin", 
+		"Western", "Wonder", "Xenon",
 		"Yogurt", "Zigzag", "Zombie"
 	};
 
@@ -72,6 +93,25 @@ int main()
 	default_random_engine engine(rDev());
 	uniform_int_distribution<int> uniform_dist(0, words.size() - 1);
 
+	word = words[uniform_dist(engine)];
+	for (int i = 0; i < word.size(); ++i)
+		guess += "_";
+
+	cout << word << endl;
+	cout << guess << endl;
+	while (guess.compare(word) != 0)
+	{
+		if (checkGuess(word, guess))
+		{
+			cout << guess << endl;
+		}
+		else
+		{
+			cout << guess << endl;
+		}
+	}
+
+	cout << "You Win!" << endl;
 
 	return 0;
 }
