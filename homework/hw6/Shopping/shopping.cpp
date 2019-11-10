@@ -3,7 +3,8 @@ shopping.cpp
 Justyn P. Durnford
 Created on 11/9/2019
 Last updated on 11/0/2019
-
+Allows the user to simulate
+shopping at a grocery store.
 */
 
 #include <iostream>
