@@ -30,13 +30,38 @@ struct Record
 void printVector(const vector<string>& vec)
 {
 	string out = "";
+
 	for (string item : vec)
 	{
 		out += item;
 		out += ", ";
 	}
-	out.pop_back();
-	out.pop_back();
+	if (!out.empty())
+	{
+		out.pop_back();
+		out.pop_back();
+	}
+
+	cout << out << endl;
+}
+
+//Prints items in the cart and total
+void printCart(const map<string, Record>& cart)
+{
+	string out = "";
+	double total = 0.0;
+
+	for (const auto& item : cart)
+	{
+		total += item.second.price;
+		out += item.first;
+		out += ": ";
+		out += item.second.units;
+		out += ", ";
+	}
+	out += "Total : $";
+	out += total;
+
 	cout << out << endl;
 }
 
@@ -51,7 +76,7 @@ string getInput()
 int main()
 {
 	bool cont = true;
-
+	map<string, Record> cart;
 	vector<string> items =
 	{
 		"Apples", "Bananas", "Oranges",
@@ -61,7 +86,7 @@ int main()
 	while (cont)
 	{
 
-	}
+	} 
 
-	map<string, Record> cart;
+	return 0;
 }
