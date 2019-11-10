@@ -35,8 +35,6 @@ struct Record
 	int units;
 };
 
-
-
 //Prints given vector
 void printVector(const vector<string>& vec)
 {
@@ -75,7 +73,10 @@ void printCart(const map<string, Record>& cart)
 		out += ", ";
 	}
 	out += "Total : $";
-	out += to_string(total);
+
+	string totalStr = to_string(total);
+	int Ldot = totalStr.find('.');
+	out += totalStr.substr(0, Ldot + 3);
 
 	cout << out << endl;
 }
