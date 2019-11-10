@@ -35,6 +35,8 @@ struct Record
 	int units;
 };
 
+
+
 //Prints given vector
 void printVector(const vector<string>& vec)
 {
@@ -133,7 +135,12 @@ bool decideAction(map<string, Record>& cart)
 int main()
 {
 	bool cont = true;
-	map<string, Record> cart;
+	map<string, Record> cart =
+	{
+		{"Apple", {1.0, 0}}, {"Banana", {1.5, 0}},
+		{"Orange", {1.25, 0}}, {"Strawberry", {0.15, 0}},
+		{"Watermelon", {5.5, 0}}
+	};
 
 	while (cont)
 	{
