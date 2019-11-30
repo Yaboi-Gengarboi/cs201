@@ -125,6 +125,11 @@
   <ItemGroup>
     <ClCompile Include="thermostat_main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Agent.hpp" />
+    <ClInclude Include="Enviornment.hpp" />
+    <ClInclude Include="Simulator.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
