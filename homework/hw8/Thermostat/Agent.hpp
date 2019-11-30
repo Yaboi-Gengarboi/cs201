@@ -25,7 +25,7 @@ class Agent
 		int perceive(const Enviornment& pEnv);
 
 		//Determines whether to turn the heater on or not.
-		bool think();
+		bool think(const Enviornment& pEnv);
 
 		//Turns the enviornment's heater on or off.
 		void act(Enviornment& pEnv);
