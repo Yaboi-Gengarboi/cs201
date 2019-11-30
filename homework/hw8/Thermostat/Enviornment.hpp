@@ -16,22 +16,22 @@ class Enviornment
 	public:
 		/* 
 		Default constructor for Enviornment class.
-		PARAMETER int p1: integer to set current_temp to.
-		PARAMETER bool p2: boolean to set is_heater_on to. 
+		PARAMETER int pint: integer to set current_temp to.
+		PARAMETER bool pbool: boolean to set is_heater_on to. 
 		*/
-		Enviornment(int p1, bool p2);
+		Enviornment(int pInt, bool pBool);
 
 		//Returns current_temp.
-		int getTemp();
+		int getTemp() const;
 
 		//Returns is_heater_on.
-		bool isHeaterOn();
+		bool isHeaterOn() const;
 
 		/*
 		Sets is_heater_on to true or false.
-		PARAMETER bool p1: boolean to set is_heater_on to.
+		PARAMETER bool pbool: boolean to set is_heater_on to.
 		*/
-		void setHeaterState(bool p1);
+		void setHeaterState(bool pBool);
 
 		/*
 		
