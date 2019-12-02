@@ -2,7 +2,7 @@
 Agent.hpp
 Justyn P. Durnford
 Created on 11/30/2019
-Last Uppdated on 11/30/2019
+Last Uppdated on 12/1/2019
 Header file for Agent class
 */
 
@@ -26,6 +26,9 @@ class Agent
 
 		//Determines whether to turn the heater on or not.
 		bool think(const Enviornment& pEnv);
+
+		//Assigns new desired_temp
+		void setDesiredTemp(int pInt);
 
 		//Turns the enviornment's heater on or off.
 		void act(Enviornment& pEnv);
