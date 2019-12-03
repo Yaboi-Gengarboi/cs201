@@ -41,10 +41,15 @@ char getCharInput()
 	{
 		cout << "Enter a letter" << endl;
 		getline(cin, line);
-		if (!line.empty() && isalpha(line[0]))
+		if (!line.empty())
 		{
-			ch = toupper(line[0]);
-			cont = false;
+			if (isalpha(line[0]))
+			{
+				ch = toupper(line[0]);
+				cont = false;
+			}
+			else
+				cont = true;
 		}
 	}
 
@@ -106,22 +111,21 @@ void printHangman(int wrong)
 
 void playHangman()
 {
-	array<string, 42> words =
+	array<string, 52> words =
 	{
-		"APPLE", "BAGPIPES", "BANJO",
-		"COMPUTER", "CRYPT", "DANGER",
-		"EATEN", "FAVORITE", "FISHING",
-		"GAMING", "GREAT", "HAIKU",
-		"HAPPY", "IVORY", "JOURNAL",
-		"KAYAK", "KLUTZ", "LENGTH",
-		"MAILBOX", "MEMORY", "NEARBY",
-		"NICKEL", "OXYGEN", "PAJAMAS",
-		"PIXEL", "POLKA", "QUEEN",
-		"QUICK", "RHYTHM", "ROGUE",
-		"SPHINX", "SHOVEL", "TODAY",
-		"TWENTY", "UNZIP", "VIOLIN",
-		"WESTERN", "WONDER", "XENON",
-		"YOGURT", "ZIGZAG", "ZOMBIE"
+		"ANGEL", "APPLE", "BAGEL", "BANANA",
+		"CANDY", "COMPUTER", "DANGER", "DELETE",
+		"EAGLE", "EATEN", "FAVORITE", "FISHING",
+		"GAMING", "GREAT", "HAIKU", "HAPPY", 
+		"IDEAL", "IVORY", "JOURNAL", "JUNGLE",
+		"KAYAK", "KLUTZ", "LENGTH", "LITTLE",
+		"MAPLE", "MEMORY", "NEARBY", "NICKEL",
+		"OCEAN", "OXYGEN", "PAJAMAS", "PIXEL",
+		"QUEEN", "QUICK", "RHYTHM", "ROGUE",
+		"SPHINX", "SHOVEL", "TODAY", "TWENTY",
+		"ULTIMATE", "UNWIND", "VALOR", "VIOLIN",
+		"WESTERN", "WONDER", "XENON", "XYLOPHONE",
+		"YOGURT", "YOUNG", "ZIGZAG", "ZOMBIE"
 	};
 
 	string word = "";
@@ -178,7 +182,7 @@ void playHangman()
 
 bool isBoardFull(const array<array<char, 3>, 3>& board)
 {
-
+	return false;
 }
 
 void playTicTacToe()
