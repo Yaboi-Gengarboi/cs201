@@ -185,6 +185,21 @@ bool isBoardFull(const array<array<char, 3>, 3>& board)
 	return false;
 }
 
+int switchPlayer(int pInt)
+{
+	switch (pInt)
+	{
+		case 0:
+			return 1;
+			break;
+		default:
+			return 0;
+			break;
+	}
+	
+	return -1;
+}
+
 void playTicTacToe()
 {
 	array<array<char, 3>, 3> board = { { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } } };
