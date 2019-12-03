@@ -31,7 +31,7 @@ using std::uniform_int_distribution;
 using std::isalpha;
 
 //Prompts the user to enter a letter.
-char getInput()
+char getCharInput()
 {
 	char ch;
 	string line;
@@ -58,7 +58,7 @@ the word and corrects guess accordingly.
 bool checkGuess(const string& word, string& guess, map<char, bool>& letters)
 {
 	bool retVal = false;
-	char ch = getInput();
+	char ch = getCharInput();
 	letters[ch] = false;
 	size_t found = word.find(ch);
 
@@ -174,6 +174,11 @@ void playHangman()
 	}
 
 	cout << "The word was " << word << endl;
+}
+
+void playTicTacToe()
+{
+	char board[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
 }
 
 int main()
