@@ -16,8 +16,8 @@ using std::string;
 using std::getline;
 using std::toupper;
 
-#include <vector>
-using std::vector;
+#include <array>
+using std::array;
 
 #include <map>
 using std::map;
@@ -106,7 +106,7 @@ void printHangman(int wrong)
 
 void playHangman()
 {
-	vector<string> words =
+	array<string, 42> words =
 	{
 		"APPLE", "BAGPIPES", "BANJO",
 		"COMPUTER", "CRYPT", "DANGER",
@@ -176,9 +176,20 @@ void playHangman()
 	cout << "The word was " << word << endl;
 }
 
+bool isBoardFull(const array<array<char, 3>, 3>& board)
+{
+
+}
+
 void playTicTacToe()
 {
-	char board[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
+	array<array<char, 3>, 3> board = { { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } } };
+
+	random_device rDev;
+	default_random_engine engine(rDev());
+	uniform_int_distribution<int> uniform_dist(0, 1);
+
+	int currentPlayer = uniform_dist(engine);
 }
 
 int main()
