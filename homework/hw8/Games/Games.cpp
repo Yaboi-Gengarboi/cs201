@@ -187,11 +187,11 @@ int switchPlayer(int pInt)
 {
 	switch (pInt)
 	{
-		case 0:
-			return 1;
+		case 1:
+			return 2;
 			break;
 		default:
-			return 0;
+			return 1;
 			break;
 	}
 	
@@ -215,16 +215,34 @@ bool isBoardFull(const array<array<char, 3>, 3>& board)
 	return true;
 }
 
+//Prints the TicTacToe board
+void printBoard(const const array<array<char, 3>, 3>& board)
+{
+	cout << "   A  B  C" << endl;
+	for (int i = 0; i < 3; ++i)
+	{
+		cout << i + 1<< "  ";
+		for (char c : board[i])
+			cout << c << "  ";
+		cout << endl;
+	}
+}
+
 void playTicTacToe()
 {
 	array<array<char, 3>, 3> board = { { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } } };
 
 	random_device rDev;
 	default_random_engine engine(rDev());
-	uniform_int_distribution<int> uniform_dist(0, 1);
+	uniform_int_distribution<int> uniform_dist(1, 2);
 
 	int currentPlayer = uniform_dist(engine);
 	bool cont = true;
+
+	while (cont && !isBoardFull(board))
+	{
+		cout << "PLAYER " << currentPlayer << ", Enter a space" << endl;
+	}
 }
 
 int chooseGame()
@@ -274,6 +292,7 @@ int chooseGame()
 
 int main()
 {
+	/*
 	int choose = -1;
 
 	while (choose != 0)
@@ -290,6 +309,11 @@ int main()
 				break;
 		}
 	}
+	*/
+
+	array<array<char, 3>, 3> board = { { { 'X', 'X', 'X' }, { 'X', 'X', 'X' }, { 'X', 'X', 'X' } } };
+
+	printBoard(board);
 
 	return 0;
 }
