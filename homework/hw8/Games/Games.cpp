@@ -257,6 +257,27 @@ array<int, 2> getSpaceInput(const int& currentPlayer)
 	return arr;
 }
 
+void placeOnBoard(array<array<char, 3>, 3>& board, const int& player)
+{
+	array<int, 2> arr = { 0, 0 };
+	while (board[arr[0]][arr[1]] != ' ')
+	{
+		arr = getSpaceInput(player);
+		if (board[arr[0]][arr[1]] != ' ')
+			cout << "This space is already taken. Select another" << endl;
+		else
+		{
+
+		}
+	}
+
+	switch (player)
+	{
+		case 1:
+
+	}
+}
+
 //Loops through each spot on the board and checks if it is full
 //Returns true if the board is full.
 //Returns false otherwise.
