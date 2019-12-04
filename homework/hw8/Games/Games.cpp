@@ -30,6 +30,9 @@ using std::uniform_int_distribution;
 #include <cctype>
 using std::isalpha;
 
+#include <stdexcept>
+using std::invalid_argument;
+
 //Prompts the user to enter a letter.
 char getCharInput()
 {
@@ -180,11 +183,6 @@ void playHangman()
 	cout << "The word was " << word << endl;
 }
 
-bool isBoardFull(const array<array<char, 3>, 3>& board)
-{
-	return false;
-}
-
 int switchPlayer(int pInt)
 {
 	switch (pInt)
@@ -200,6 +198,23 @@ int switchPlayer(int pInt)
 	return -1;
 }
 
+//Loops through each spot on the board and checks if it is full
+//Returns true if the board is full.
+//Returns false otherwise.
+bool isBoardFull(const array<array<char, 3>, 3>& board)
+{
+	for (auto arr : board)
+	{
+		for (char c : arr)
+		{
+			if (c == ' ')
+				return false;
+		}
+	}
+
+	return true;
+}
+
 void playTicTacToe()
 {
 	array<array<char, 3>, 3> board = { { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } } };
@@ -209,11 +224,72 @@ void playTicTacToe()
 	uniform_int_distribution<int> uniform_dist(0, 1);
 
 	int currentPlayer = uniform_dist(engine);
+	bool cont = true;
+}
+
+int chooseGame()
+{
+	string input;
+	int ret = -1;
+
+	while (ret == -1)
+	{
+		cout << "Enter 1 to play Hangman" << endl;
+		cout << "Enter 2 to play TicTacToe" << endl;
+		cout << "Enter 0 to quit" << endl;
+		getline(cin, input);
+
+		if (!input.empty())
+		{
+			try
+			{
+				ret = stoi(input);
+				switch (ret)
+				{
+					case 1:
+						return ret;
+						break;
+					case 2:
+						return ret;
+						break;
+					case 0:
+						return ret;
+						break;
+					default :
+						cout << "Invalid input, try again" << endl;
+						ret = -1;
+						break;
+				}
+			}
+			catch (invalid_argument & ia)
+			{
+				cout << "Invalid input, try again" << endl;
+				ret = -1;
+			}
+		}
+	}
+
+	return ret;
 }
 
 int main()
 {
-	playHangman();
+	int choose = -1;
+
+	while (choose != 0)
+	{
+		choose = chooseGame();
+		switch (choose)
+		{
+			case 1:
+				playHangman();
+				break;
+			case 2:
+				break;
+			case 0:
+				break;
+		}
+	}
 
 	return 0;
 }
