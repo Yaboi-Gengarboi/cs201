@@ -198,6 +198,65 @@ int switchPlayer(int pInt)
 	return -1;
 }
 
+//Prompts the user to enter a valid space on the board
+//and returns two integers that correspond to vertical
+//and horizontal location respectively.
+//Requires the current player.
+array<int, 2> getSpaceInput(const int& currentPlayer)
+{
+	array<int, 2> arr = { 0, 0 };
+	string line;
+	char c;
+	int n;
+	bool cont = true;
+
+	while (cont)
+	{
+		cout << "PLAYER " << currentPlayer << ", Enter a space" << endl;
+		getline(cin, line);
+		if (line.size() == 2)
+		{
+			try
+			{
+				c = line[0];
+				n = stoi(line.substr(1));
+				switch (c) //Column
+				{
+					case 'A':
+						arr[1] = 0;
+						break;
+					case 'B':
+						arr[1] = 1;
+						break;
+					case 'C':
+						arr[1] = 2;
+						break;
+					default:
+						throw invalid_argument(""); //Invalid input
+						break;
+				}
+				if (n < 1 || n > 3)
+					throw invalid_argument(""); //Invalid input
+				else
+					arr[0] = --n;
+				cont = false;
+			}
+			catch (invalid_argument& ia)
+			{
+				cout << "Invalid input. Try again" << endl;
+				cont = true;
+			}
+		}
+		else
+		{
+			cout << "Invalid input. Try again" << endl;
+			cont = true;
+		}
+	}
+
+	return arr;
+}
+
 //Loops through each spot on the board and checks if it is full
 //Returns true if the board is full.
 //Returns false otherwise.
@@ -335,6 +394,11 @@ int chooseGame()
 				ret = -1;
 			}
 		}
+		else
+		{
+			cout << "Invalid input, try again" << endl;
+			ret = -1;
+		}
 	}
 
 	return ret;
@@ -366,6 +430,10 @@ int main()
 	printBoard(board);
 	cout << isBoardFull(board) << endl;
 	cout << hasPlayerWon(board) << endl;
+	array<int, 2> arr = getSpaceInput(1);
+	cout << arr[0] << ", " << arr[1] << endl;
+	board[arr[0]][arr[1]] = 'X';
+	printBoard(board);
 
 	return 0;
 }
