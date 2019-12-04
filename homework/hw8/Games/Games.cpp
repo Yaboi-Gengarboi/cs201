@@ -228,6 +228,31 @@ void printBoard(const const array<array<char, 3>, 3>& board)
 	}
 }
 
+//Determins if a player has won
+//Returns true if a player has won
+//Returns false otherwise
+bool hasPlayerWon(const array<array<char, 3>, 3>& board)
+{
+	for (int i = 0; i < 3; ++i)
+	{
+		//Checks rows
+		if (board[i][0] == board[i][1] == board[i][2] && board[i][0] != ' ')
+			return true;
+		//Checks columns
+		else if (board[0][i] == board[0][i] == board[0][i] && board[0][i] != ' ')
+			return true;
+	}
+
+	//Checks down-right diagonal
+	if (board[0][0] == board[1][1] == board[2][2] && board[0][0] != ' ')
+		return true;
+	//Checks down-left diagonal
+	else if (board[0][2] == board[1][1] == board[2][0] && board[0][0] != ' ')
+		return true;
+
+	return false;
+}
+
 void playTicTacToe()
 {
 	array<array<char, 3>, 3> board = { { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } } };
