@@ -395,8 +395,6 @@ void playTicTacToe()
 }
 
 //Selects the game to play
-//Returns 1 for Hangman
-//Returns 2 for TicTacToe
 //Returns 0 to quit
 int chooseGame()
 {
@@ -450,26 +448,22 @@ int chooseGame()
 
 int main()
 {
-	/*
-	int choose = -1;
-
-	while (choose != 0)
+	int game = chooseGame();
+	while (game != 0)
 	{
-		choose = chooseGame();
-		switch (choose)
+		switch (game)
 		{
 			case 1:
 				playHangman();
 				break;
 			case 2:
+				playTicTacToe();
 				break;
-			case 0:
+			default:
 				break;
 		}
+		game = chooseGame();
 	}
-	*/
-
-	playTicTacToe();
 
 	return 0;
 }
