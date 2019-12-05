@@ -1,10 +1,8 @@
-/*
-Games.cpp
-Justyn P. Durnford
-CS 201
-Created on 12/2/2019
-Last Updated on 12/2/2019
-*/
+//Games.cpp
+//Justyn P. Durnford
+//CS 201
+//Created on 12/2/2019
+//Last Updated on 12/4/2019
 
 #include <iostream>
 using std::cout;
@@ -59,10 +57,8 @@ char getCharInput()
 	return ch;
 }
 
-/*
-Looks if the character from getInput is in
-the word and corrects guess accordingly.
-*/
+//Looks if the character from getInput is in
+//the word and corrects guess accordingly.
 bool checkGuess(const string& word, string& guess, map<char, bool>& letters)
 {
 	bool retVal = false;
@@ -82,11 +78,9 @@ bool checkGuess(const string& word, string& guess, map<char, bool>& letters)
 	return retVal;
 }
 
-/*
-Prints the hangman that depends on how
-many guesses the person has gotten
-wrong.
-*/
+//Prints the hangman that depends on how
+//many guesses the person has gotten
+//wrong.
 void printHangman(int wrong)
 {
 	cout << "   _________" << endl;
@@ -112,6 +106,7 @@ void printHangman(int wrong)
 	cout << "___|___" << endl;
 }
 
+//Plays a game of Hangman
 void playHangman()
 {
 	array<string, 52> words =
@@ -183,6 +178,7 @@ void playHangman()
 	cout << "The word was " << word << endl;
 }
 
+//Switches what player is playing.
 int switchPlayer(int pInt)
 {
 	switch (pInt)
@@ -262,11 +258,15 @@ array<int, 2> getSpaceInput(const int& currentPlayer)
 void placeOnBoard(array<array<char, 3>, 3>& board, const int& player)
 {
 	array<int, 2> arr = { 0, 0 };
-	while (board[arr[0]][arr[1]] != ' ')
+	bool cont = true;
+
+	while (cont)
 	{
 		arr = getSpaceInput(player);
 		if (board[arr[0]][arr[1]] != ' ')
 			cout << "This space is already taken. Select another" << endl;
+		else
+			cont = false;
 	}
 
 	if (player == 1)
@@ -275,7 +275,7 @@ void placeOnBoard(array<array<char, 3>, 3>& board, const int& player)
 		board[arr[0]][arr[1]] = 'O';
 }
 
-//Loops through each spot on the board and checks if it is full
+//Loops through each spot on the board and checks if it is full.
 //Returns true if the board is full.
 //Returns false otherwise.
 bool isBoardFull(const array<array<char, 3>, 3>& board)
@@ -292,7 +292,7 @@ bool isBoardFull(const array<array<char, 3>, 3>& board)
 	return true;
 }
 
-//Prints the TicTacToe board
+//Prints the TicTacToe board.
 void printBoard(const const array<array<char, 3>, 3>& board)
 {
 	cout << "   A  B  C" << endl;
@@ -305,10 +305,10 @@ void printBoard(const const array<array<char, 3>, 3>& board)
 	}
 }
 
-//Determins if a player has won
-//Returns 1 if player 1 (X) has won
-//Returns 2 if player 2 (O) has won
-//Returns 0 if no player has won
+//Determins if a player has won.
+//Returns 1 if player 1 (X) has won.
+//Returns 2 if player 2 (O) has won.
+//Returns 0 if no player has won.
 int hasPlayerWon(const array<array<char, 3>, 3>& board)
 {
 	for (int i = 0; i < 3; ++i)
@@ -355,6 +355,7 @@ int hasPlayerWon(const array<array<char, 3>, 3>& board)
 	return 0;
 }
 
+//Plays a game of TicTacToe
 void playTicTacToe()
 {
 	array<array<char, 3>, 3> board = { { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } } };
@@ -366,12 +367,37 @@ void playTicTacToe()
 	int currentPlayer = uniform_dist(engine);
 	bool cont = true;
 
-	while (cont && !isBoardFull(board))
+	while (cont)
 	{
-		cout << "PLAYER " << currentPlayer << ", Enter a space" << endl;
+		printBoard(board);
+		if (hasPlayerWon(board) == 0 && !isBoardFull(board))
+		{
+			placeOnBoard(board, currentPlayer);
+			currentPlayer = switchPlayer(currentPlayer);
+			cont = true;
+		}
+		else if (hasPlayerWon(board) == 1)
+		{
+			cout << "PLAYER 1 HAS WON!" << endl;
+			cont = false;
+		}
+		else if (hasPlayerWon(board) == 2)
+		{
+			cout << "PLAYER 2 HAS WON!" << endl;
+			cont = false;
+		}
+		else if (isBoardFull(board))
+		{
+			cout << "TIE! NO ONE WINS!" << endl;
+			cont = false;
+		}
 	}
 }
 
+//Selects the game to play
+//Returns 1 for Hangman
+//Returns 2 for TicTacToe
+//Returns 0 to quit
 int chooseGame()
 {
 	string input;
@@ -443,13 +469,7 @@ int main()
 	}
 	*/
 
-	array<array<char, 3>, 3> board = { { { 'O', ' ', ' ' }, { ' ', 'O', ' ' }, { ' ', ' ', 'O' } } };
-
-	printBoard(board);
-	cout << isBoardFull(board) << endl;
-	cout << hasPlayerWon(board) << endl;
-	placeOnBoard(board, 1);
-	printBoard(board);
+	playTicTacToe();
 
 	return 0;
 }
