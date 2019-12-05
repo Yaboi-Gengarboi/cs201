@@ -12,7 +12,6 @@ using std::endl;
 #include <string>
 using std::string;
 using std::getline;
-using std::toupper;
 
 #include <array>
 using std::array;
