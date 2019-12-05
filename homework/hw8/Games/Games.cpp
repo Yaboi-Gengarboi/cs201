@@ -257,6 +257,8 @@ array<int, 2> getSpaceInput(const int& currentPlayer)
 	return arr;
 }
 
+//Places the player's token on the board.
+//Requires the board and player number.
 void placeOnBoard(array<array<char, 3>, 3>& board, const int& player)
 {
 	array<int, 2> arr = { 0, 0 };
@@ -265,17 +267,12 @@ void placeOnBoard(array<array<char, 3>, 3>& board, const int& player)
 		arr = getSpaceInput(player);
 		if (board[arr[0]][arr[1]] != ' ')
 			cout << "This space is already taken. Select another" << endl;
-		else
-		{
-
-		}
 	}
 
-	switch (player)
-	{
-		case 1:
-
-	}
+	if (player == 1)
+		board[arr[0]][arr[1]] = 'X';
+	else
+		board[arr[0]][arr[1]] = 'O';
 }
 
 //Loops through each spot on the board and checks if it is full
@@ -451,9 +448,7 @@ int main()
 	printBoard(board);
 	cout << isBoardFull(board) << endl;
 	cout << hasPlayerWon(board) << endl;
-	array<int, 2> arr = getSpaceInput(1);
-	cout << arr[0] << ", " << arr[1] << endl;
-	board[arr[0]][arr[1]] = 'X';
+	placeOnBoard(board, 1);
 	printBoard(board);
 
 	return 0;
