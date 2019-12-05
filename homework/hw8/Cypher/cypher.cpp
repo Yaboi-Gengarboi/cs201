@@ -6,8 +6,10 @@
 
 #include <string>
 using std::string;
+using std::getline;
 
 #include <iostream>
+using std::cin;
 using std::cout;
 using std::endl;
 
@@ -67,18 +69,19 @@ int getInt()
 string getString()
 {
 	string str = "";
+	bool cont = true;
+	while (cont)
+	{
+		cout << "Enter a message." << endl;
+		getline(cin, str);
+		if (!str.empty())
+			cont = false;
+	}
 
 	return str;
 }
 
 int main()
 {
-	string test = "abcdefghijklmnopqrstuvwxyz";
-	cout << test << " 210" << endl;
-	encript(test, 210);
-	cout << test << endl;
-
-	cout << test << " -210" << endl;
-	encript(test, -210);
-	cout << test << endl;
+	cout << getString() << endl;
 }
