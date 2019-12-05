@@ -7,11 +7,15 @@
 #include <string>
 using std::string;
 using std::getline;
+using std::stoi;
 
 #include <iostream>
 using std::cin;
 using std::cout;
 using std::endl;
+
+#include <stdexcept>
+using std::invalid_argument;
 
 void encript(string& str, int shift)
 {
@@ -62,6 +66,28 @@ void encript(string& str, int shift)
 int getInt()
 {
 	int i = 0;
+	string str = "";
+	bool cont = true;
+
+	while (cont)
+	{
+		cout << "Enter an integer." << endl;
+		getline(cin, str);
+		try
+		{
+			if (str.empty())
+				throw invalid_argument("");
+			else
+			{
+				i = stoi(str);
+				cont = false;
+			}
+		}
+		catch (invalid_argument& ia)
+		{
+			cont = true;
+		}
+	}
 
 	return i;
 }
@@ -70,6 +96,7 @@ string getString()
 {
 	string str = "";
 	bool cont = true;
+
 	while (cont)
 	{
 		cout << "Enter a message." << endl;
@@ -83,5 +110,5 @@ string getString()
 
 int main()
 {
-	cout << getString() << endl;
+	cout << getInt() << endl;
 }
