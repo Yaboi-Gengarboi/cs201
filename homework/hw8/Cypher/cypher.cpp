@@ -57,6 +57,20 @@ void encript(string& str, int shift)
 	}
 }
 
+int getInt()
+{
+	int i = 0;
+
+	return i;
+}
+
+string getString()
+{
+	string str = "";
+
+	return str;
+}
+
 int main()
 {
 	string test = "abcdefghijklmnopqrstuvwxyz";
