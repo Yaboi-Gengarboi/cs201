@@ -17,7 +17,14 @@ using std::endl;
 #include <stdexcept>
 using std::invalid_argument;
 
-void encript(string& str, int shift)
+//Main encription function.
+//Takes a string and integer and shifts the string
+//alphabetically according to the integer, with
+//respect to uppercase and lowercase letters.
+//A shift that would put a letter beyond z or
+//before a will wrap around and continue along the
+//alphabet.
+void encript(string& str, int& shift)
 {
 	string low_alphabet = "abcdefghijklmnopqrstuvwxyz";
 	string up_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -63,6 +70,7 @@ void encript(string& str, int shift)
 	}
 }
 
+//Get integer input from user.
 int getInt()
 {
 	int i = 0;
@@ -92,6 +100,7 @@ int getInt()
 	return i;
 }
 
+//Get string input from user.
 string getString()
 {
 	string str = "";
@@ -99,7 +108,6 @@ string getString()
 
 	while (cont)
 	{
-		cout << "Enter a message." << endl;
 		getline(cin, str);
 		if (!str.empty())
 			cont = false;
@@ -110,5 +118,24 @@ string getString()
 
 int main()
 {
-	cout << getInt() << endl;
+	string cont = "";
+	string str = "";
+	int i = 0;
+
+	while (cont != "0")
+	{
+		cout << "Enter 0 to quit." << endl;
+		cout << "Enter anything else to use the cypher." << endl;
+		cont = getString();
+		if (cont != "0")
+		{
+			cout << "Enter a message." << endl;
+			str = getString();
+			i = getInt();
+			encript(str, i);
+			cout << str << endl;
+		}
+	}
+
+	return 0;
 }
